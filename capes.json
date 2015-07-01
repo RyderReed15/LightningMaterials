@@ -1,12 +1,12 @@
 {
-    "group1": {
-        "capeUrl": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png",
-        "users": [
-            "UnnamedProdigy",
-            "jeremysreed@aol.com"
-        ]
-    },
-    "UnnamedProdigy": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png"
+  "group1": {
+    "capeUrl": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png",
+    "users": [
+      "UnnamedProdigy",
+      "jeremysreed@aol.com"
+    ]
+  },
+  "UnnamedProdigy": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png"
 }
 
 
