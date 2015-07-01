@@ -1,3 +1,10 @@
-{
-  "jeremysreed@aol.com": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png"
-}
+{ 
+   "Developers": { 
+     "capeUrl": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png", 
+     "users": [ 
+       "UnnamedProdigy", 
+       "jeremysreed@aol.com" 
+     ] 
+   }, 
+   "UnnamedProdigy": "http://www.minecraftcapes.com/userskins/minecon_2011_by_spazhead.png" 
+ } 
