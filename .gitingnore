@@ -1,0 +1,15 @@
+1 *.class 
+2 
+ 
+3 # Mobile Tools for Java (J2ME) 
+4 .mtj.tmp/ 
+5 
+ 
+6 # Package Files # 
+7 *.jar 
+8 *.war 
+9 *.ear 
+10 
+ 
+11 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml 
+12 hs_err_pid* 
