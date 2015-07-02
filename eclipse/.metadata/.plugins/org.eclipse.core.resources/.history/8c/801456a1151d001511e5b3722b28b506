@@ -1,0 +1,39 @@
+package lightningmats.config;
+
+import lightningmats.LightningMaterials;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.client.config.GuiConfig;
+
+public class GuiConfigLM extends GuiConfig{
+
+	public GuiConfigLM(GuiScreen parent){
+		
+		super(parent, new ConfigElement(LightningMaterials.config.getCategory(Configuration.CATEGORY_GENERAL).getChildElements(),LightningMaterials.modid, false, false, "Client Side Options For Lightning Materials");
+		titleLine2 = LightningMaterials.config.getConfigFile().getAbsolutePath();
+		
+	}
+	@Override
+	public void initGui(){
+		
+		super.initGui();
+		
+	}
+	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks){
+		
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		
+	}
+	
+	@Override
+	public void actionPerformed(GuiButton button){
+		
+		super.actionPerformed(button);
+		
+	}
+	
+}

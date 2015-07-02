@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "side": "mymod:blocks/C4_1",
+	"top": "mymod:blocks/C4_1top",
+	"bottom": "mymod:blocks/C4_1bottom"
+        }

@@ -1,0 +1,95 @@
+package lightningmats.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lightningmats.LightningMaterials;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import cpw.mods.fml.client.config.ConfigGuiType;
+import cpw.mods.fml.client.config.DummyConfigElement;
+import cpw.mods.fml.client.config.DummyConfigElement.DummyListElement;
+import cpw.mods.fml.client.config.DummyConfigElement.DummyCategoryElement;
+import cpw.mods.fml.client.config.GuiConfig;
+import cpw.mods.fml.client.config.IConfigElement;
+
+public class GuiConfigLM extends GuiConfig{
+
+	private static String[] ClientConfig = {"client side"};
+	private static String[] ServerConfig = {"server side"};
+	private static String[] ModCompConfig = {"mod compatability"};
+	
+	public GuiConfigLM(GuiScreen parent){
+		
+		super(parent, getElements(parent), LightningMaterials.modid, false, false, "§6Options For Lightning Materials");
+		titleLine2 = LightningMaterials.config.getConfigFile().getAbsolutePath();
+		
+	}
+	@Override
+	public void initGui(){
+		
+		super.initGui();
+		
+	}
+	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks){
+		
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		
+	}
+	
+	@Override
+	public void actionPerformed(GuiButton button){
+		
+		super.actionPerformed(button);
+		LightningMaterials.config.save();
+	}
+	 private static List<IConfigElement> getElements(GuiScreen parent){
+		List<IConfigElement> list = new ArrayList<IConfigElement>();
+		 
+		list.add(new DummyCategoryElement("Client Side", "clientctg", getClientElements()));
+		list.add(new DummyCategoryElement("Server Side", "serverctg", getServerElements()));
+		list.add(new DummyCategoryElement("Mod Compatability", "modcompctg", getModCompElements()));
+		
+		 
+		 return list;
+		 
+	 }
+	 
+	 private static List<IConfigElement> getClientElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ClientConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("client side")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 private static List<IConfigElement> getServerElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ServerConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("server side")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 private static List<IConfigElement> getModCompElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ModCompConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("mod compatability")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 
+}

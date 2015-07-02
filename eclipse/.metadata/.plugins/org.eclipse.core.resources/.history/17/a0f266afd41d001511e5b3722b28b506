@@ -1,0 +1,86 @@
+package lightningmats.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lightningmats.LightningMaterials;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import cpw.mods.fml.client.GuiIngameModOptions;
+import cpw.mods.fml.client.config.IConfigElement;
+import cpw.mods.fml.client.config.DummyConfigElement.DummyCategoryElement;
+
+
+
+
+
+
+public class GuiIngameConfig extends GuiIngameModOptions{
+
+	private static String[] ClientConfig = {"client side"};
+	private static String[] ServerConfig = {"server side"};
+	
+	public GuiIngameConfig(GuiScreen parentScreen) {
+		super(parentScreen);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void initGui(){
+		
+		super.initGui();
+		
+	}
+	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks){
+		
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		
+	}
+	
+	@Override
+	public void actionPerformed(GuiButton button){
+		
+		super.actionPerformed(button);
+		LightningMaterials.config.save();
+	}
+	 private static List<IConfigElement> getElements(GuiScreen parent){
+		List<IConfigElement> list = new ArrayList<IConfigElement>();
+		 
+		list.add(new DummyCategoryElement("Client Side", "clientctg", getClientElements()));
+		list.add(new DummyCategoryElement("Server Side", "serverctg", getServerElements()));
+		
+		 
+		 return list;
+		 
+	 }
+	 
+	 private static List<IConfigElement> getClientElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ClientConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("client side")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 private static List<IConfigElement> getServerElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ServerConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("server side")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 
+}
+
+	
+

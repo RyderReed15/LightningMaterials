@@ -1,0 +1,5 @@
+ackage lightningmats.handlers;
+
+public class CraftingHandler {
+
+}

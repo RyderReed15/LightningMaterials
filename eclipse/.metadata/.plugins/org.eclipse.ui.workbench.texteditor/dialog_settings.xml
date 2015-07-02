@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="292" key="DIALOG_Y_ORIGIN"/>
+		<item value="376" key="DIALOG_HEIGHT"/>
+		<item value="780" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="container" key="selection"/>
+		<list key="findhistory">
+			<item value="container"/>
+			<item value="macerator.power"/>
+			<item value="this.power"/>
+			<item value="getBlockDropped"/>
+			<item value="CapeConfig"/>
+			<item value="Coal"/>
+			<item value="oregen"/>
+			<item value="Average Nether Coal Ore Per Vein"/>
+		</list>
+		<list key="replacehistory">
+			<item value="macerator.storage.energy"/>
+			<item value="this.storage.energy"/>
+			<item value=""/>
+			<item value="netherlightning"/>
+			<item value="That"/>
+			<item value="Generates At"/>
+			<item value="Generates"/>
+			<item value="Which"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="267" key="DIALOG_Y_ORIGIN"/>
+		<item value="452" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,54 @@
+1434851850309	Rename resource 'MyItem_1.png'
+1434851866313	Rename resource 'MyItem_12.png'
+1434851879486	Rename resource 'MyItem_2.png'
+1434851893291	Rename resource 'MyItem_22.png'
+1434851939705	Rename resource 'MyAxe_1.png'
+1434851949904	Rename resource 'MyAxe_12.png'
+1434851979341	Rename resource 'MyFood_1.png'
+1434851985108	Delete element
+1434851989227	Delete element
+1434852002243	Rename resource 'MyPickaxe_1.png'
+1434852015528	Rename resource 'MyPickaxe_12.png'
+1434852039235	Rename resource 'MySpade_1.png'
+1434852086768	Rename resource 'MySpade_12.png'
+1434852103247	Rename resource 'MySword_1.png'
+1434852112751	Rename resource 'MySword_12.png'
+1434852307498	Rename resource 'MyBoots_1.png'
+1434852323460	Rename resource 'MyChest_1.png'
+1434852339779	Rename resource 'MyHelmet_1.png'
+1434852351628	Rename resource 'MyLeggings_1.png'
+1434854014120	Rename package 'mymod'
+1434854047645	Rename package 'mymod.armor'
+1434854059171	Rename package 'mymod.biome'
+1434854068138	Rename package 'mymod.blocks'
+1434854109929	Copy package
+1434854214145	Delete element
+1434854225682	Rename package 'mymod.commands'
+1434854237147	Rename package 'mymod.dimension'
+1434854248954	Rename package 'mymod.entity'
+1434854261308	Rename package 'mymod.handlers'
+1434854274995	Rename package 'mymod.items'
+1434854305695	Rename package 'mymod.power'
+1434854324343	Rename package 'mymod.projectile'
+1434854335931	Rename package 'mymod.proxies'
+1434854352475	Rename package 'mymod.tooltips'
+1434854398141	Rename package 'assets.mymod'
+1434894676205	Rename resource 'LightningChestplate.png'
+1434894682923	Rename resource 'LightningHelm.png'
+1434894691267	Rename resource 'LightningLeggings.png'
+1435173017370	Delete element
+1435347559886	Copy compilation unit
+1435347582634	Copy compilation units
+1435347597863	Copy compilation units
+1435347608101	Copy compilation units
+1435348065926	Copy compilation unit
+1435350326619	Delete elements
+1435413038900	Delete element
+1435414501427	Delete element
+1435414743064	Rename type 'Recipies'
+1435415414841	Delete elements
+1435415576849	Delete element
+1435430406430	Delete element
+1435432336666	Move file
+1435433120366	Delete element
+1435438878856	Rename compilation unit 'package-info.java'

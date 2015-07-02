@@ -1,0 +1,67 @@
+package lightningmats.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lightningmats.LightningMaterials;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import cpw.mods.fml.client.config.DummyConfigElement;
+import cpw.mods.fml.client.config.DummyConfigElement.DummyListElement;
+import cpw.mods.fml.client.config.GuiConfig;
+import cpw.mods.fml.client.config.IConfigElement;
+
+public class GuiConfigLM extends GuiConfig{
+
+	private static String[] ClientConfig = {"client side"};
+	
+	public GuiConfigLM(GuiScreen parent){
+		
+		super(parent, getElements(parent), LightningMaterials.modid, false, false, "§6Client Side Options For Lightning Materials");
+		titleLine2 = LightningMaterials.config.getConfigFile().getAbsolutePath();
+		
+	}
+	@Override
+	public void initGui(){
+		
+		super.initGui();
+		
+	}
+	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks){
+		
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		
+	}
+	
+	@Override
+	public void actionPerformed(GuiButton button){
+		
+		super.actionPerformed(button);
+		
+	}
+	 private static List<IConfigElement> getElements(GuiScreen parent){
+		List<IConfigElement> list = new ArrayList<IConfigElement>();
+		 
+		list.add(new ConfigElement(LightningMaterials.config.getCategory("client side")));
+		list.add(new DummyConfigElement("Client Side", LightningMaterials.config.getCategory("server side"), null, "Client Side"));
+		 
+		 return list;
+		 
+	 }
+	 
+	 private static List<IConfigElement> getClientElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ClientConfig.length; i++) { 
+		  			list.add(new ConfigElement(LightningMaterials.config.getCategory("client side"))); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 
+}

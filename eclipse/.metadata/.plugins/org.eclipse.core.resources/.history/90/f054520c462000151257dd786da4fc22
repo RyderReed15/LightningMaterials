@@ -1,0 +1,62 @@
+package colinsmod.bronzefurnace;
+
+import colinsmod.SuperiorSupplies;
+import colinsmod.bronzefurnace.ContainerBFurnace;
+import colinsmod.bronzefurnace.GuiBFurnace;
+import colinsmod.bronzefurnace.TileEntityBFurnace;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
+
+public class GuiHandler2 implements IGuiHandler {
+		public GuiHandler2() {
+			NetworkRegistry.INSTANCE.registerGuiHandler(SuperiorSupplies.instance, this);
+		}
+
+		
+		public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+			TileEntity entity = world.getTileEntity(x, y, z);
+
+			if(entity != null){
+				switch (id) {
+					
+						case SuperiorSupplies.guiIdFurnace:
+							if (entity instanceof TileEntityBFurnace) {
+								return new ContainerBFurnace(player.inventory, (TileEntityBFurnace) entity);
+							} 
+						return null;
+					default:
+						return null;
+				}
+			}
+			
+			return null;
+		}
+
+		
+		public Object getClientGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+			TileEntity entity = world.getTileEntity(x, y, z);
+
+			if(entity != null){
+				switch (id) {
+				
+						case SuperiorSupplies.guiIdFurnace:
+							if (entity instanceof TileEntityBFurnace) {
+								return new GuiBFurnace(player.inventory, (TileEntityBFurnace) entity);
+							}
+						return null;
+					default:
+						return null;
+				}
+			}
+
+			return null;
+					
+				
+			
+
+			
+		}	
+	}

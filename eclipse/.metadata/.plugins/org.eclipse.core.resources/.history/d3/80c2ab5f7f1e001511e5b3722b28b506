@@ -1,0 +1,151 @@
+# Configuration file
+
+"amethyst ore generation" {
+    I:"Average Amethyst Ore Per Vein"=3
+    I:"Height At Which Amethyst Ore Can Generate"=31
+    I:"Height Which Amethyst Ore Generates At"=31
+    I:"Veins Of Amethyst Ore Per Chunk"=3
+}
+
+
+##########################################################################################################
+# client side
+#--------------------------------------------------------------------------------------------------------#
+# These Can Be Upadated Instantly
+##########################################################################################################
+
+"client side" {
+    B:"HD Textures"=true
+    B:"Render The Gun In 3D"=true
+}
+
+
+"lightning ore generation" {
+    I:"Average Lightning Ore Per Vein"=3
+    I:"Height At Which Lightning Ore Can Generate"=23
+    I:"Height Which Lightning Ore Generates At"=23
+    I:"Veins Of Lightning Ore Per Chunk"=1
+}
+
+
+##########################################################################################################
+# mod compatability
+#--------------------------------------------------------------------------------------------------------#
+# These Add Things That Use Stuff From Other Mods
+##########################################################################################################
+
+"mod compatability" {
+    B:"Ores From TF Work In The Macerator"=false
+}
+
+
+"nether coal ore generation" {
+    I:"Average Nether Coal Ore Per Vein"=13
+    I:"Height Which Nether Coal Ore Generates At"=127
+    I:"Veins Of Nether Coal Ore Per Chunk"=16
+}
+
+
+"nether diamond ore generation" {
+    I:"Average Nether Diamond Ore Per Vein"=3
+    I:"Height Which Nether Diamond Ore Generates At"=38
+    I:"Veins Of Nether Diamond Ore Per Chunk"=4
+}
+
+
+"nether emerald ore generation" {
+    I:"Average Nether Emerald Ore Per Vein"=2
+    I:"Height Which Nether Emerald Ore Generates At"=33
+    I:"Veins Of Nether Emerald Ore Per Chunk"=2
+}
+
+
+"nether gold ore generation" {
+    I:"Average Nether Gold Ore Per Vein"=5
+    I:"Height Which Nether Gold Ore Generates At"=46
+    I:"Veins Of Nether Gold Ore Per Chunk"=5
+}
+
+
+"nether iron ore generation" {
+    I:"Average Nether Iron Ore Per Vein"=6
+    I:"Height Which Nether Iron Ore Generates At"=72
+    I:"Veins Of Nether Iron Ore Per Chunk"=9
+}
+
+
+"nether lightning ore generation" {
+}
+
+
+"nether redstone ore generation" {
+    I:"Average Nether Redstone Ore Per Vein"=6
+    I:"Height Which Nether Redstone Ore Generates At"=46
+    I:"Veins Of Nether Redstone Ore Per Chunk"=4
+}
+
+
+"nethr emerald ore generation" {
+}
+
+
+"nickel ore generation" {
+    I:"Average Nickel Ore Per Vein"=5
+    I:"Height At Which Nickel Ore Can Generate"=31
+    I:"Height Which Nickel Ore Generates At"=31
+    I:"Veins Of Nickel Ore Per Chunk"=3
+}
+
+
+"ore generation" {
+    I:"Average Lightning Ore Per Vein"=3
+    I:"Height At Which Lightning Ore Can Generate"=23
+    I:"Veins Of Lightning Ore Per Chunk"=1
+}
+
+
+"platinum ore generation" {
+    I:"Average Platinum Ore Per Vein"=3
+    I:"Height At Which Platinum Ore Can Generate"=21
+    I:"Height Which Platinum Ore Generates At"=21
+    I:"Veins Of Platinum Ore Per Chunk"=2
+}
+
+
+"ruby ore generation" {
+    I:"Average Ruby Ore Per Vein"=3
+    I:"Height At Which Ruby Ore Can Generate"=31
+    I:"Height Which Ruby Ore Generates At"=31
+    I:"Veins Of Ruby Ore Per Chunk"=3
+}
+
+
+"sapphire ore generation" {
+    I:"Average Sapphire Ore Per Vein"=3
+    I:"Height At Which Sapphire Ore Can Generate"=31
+    I:"Height Which Sapphire Ore Generates At"=31
+    I:"Veins Of Sapphire Ore Per Chunk"=3
+}
+
+
+##########################################################################################################
+# server side
+#--------------------------------------------------------------------------------------------------------#
+# These Require A World Restart
+##########################################################################################################
+
+"server side" {
+    B:"Allow Lightning Rods"=true
+    B:"Disable Zinc Tools"=false
+    B:"Enable Nether Ores"=true
+}
+
+
+"zinc ore generation" {
+    I:"Average Zinc Ore Per Vein"=5
+    I:"Height At Which Zinc Ore Can Generate"=31
+    I:"Height Which Zinc Ore Generates At"=31
+    I:"Veins Of Zinc Ore Per Chunk"=3
+}
+
+

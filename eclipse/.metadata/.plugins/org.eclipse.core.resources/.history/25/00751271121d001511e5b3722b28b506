@@ -1,0 +1,5 @@
+package lightningmats.config;
+
+public class LMGuiFactory {
+
+}

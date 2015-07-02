@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 0 packages to &apos;Minecraft/src/main/java/assets.mymod.textures&apos;&#x0D;&#x0A;- Destination element: &apos;Minecraft/src/main/java/assets.mymod.textures&apos;" description="Copy packages" destination="=Minecraft/src\/main\/java&lt;assets.mymod.textures" flags="589830" fragments="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1414865059089" version="1.0"/>
+</session>
