@@ -1,4 +1,4 @@
-package lightningmats.power.bronzefurnace;
+package lightningmats.power.nickelfurnace;
 
 import lightningmats.LightningMaterials;
 import lightningmats.power.LMEnergyStorage;
@@ -16,11 +16,11 @@ import cofh.api.energy.TileEnergyHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInventory, IEnergyHandler{
+public class TileEntityNickelFurnace extends TileEnergyHandler implements ISidedInventory, IEnergyHandler{
 		private static final int[] slots_top = new int[] {0};
 		private static final int[] slots_bottom = new int[] {2, 1};
 		private static final int[] slots_sides = new int[] {1};
-		public TileEntityBFurnace(){
+		public TileEntityNickelFurnace(){
 	        storage = new LMEnergyStorage(CAPACITY, MAX_RECEIVE);
 	    }
 		/**
@@ -308,7 +308,7 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
             	if (flag != this.storage.energy > 0)
             	{
                 	flag1 = true;
-                		BFurnace.updateFurnaceBlockState(this.storage.energy > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+                		NickelFurnace.updateFurnaceBlockState(this.storage.energy > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             		}
             	if (this.hasPower() && this.canSmelt2())
             	{
@@ -329,7 +329,7 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
             	if (flag != this.storage.energy > 0)
             	{
                 	flag1 = true;
-                		BFurnace.updateFurnaceBlockState(this.storage.energy > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+                		NickelFurnace.updateFurnaceBlockState(this.storage.energy > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             		}
             	if (this.hasPower() && this.canSmelt3())
             	{
@@ -350,7 +350,7 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
             	if (flag != this.isMacerating())
             	{
                 	flag1 = true;
-                		BFurnace.updateFurnaceBlockState(this.isMacerating(), this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+                		NickelFurnace.updateFurnaceBlockState(this.isMacerating(), this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             		}
         	}
 

@@ -1,5 +1,6 @@
 package lightningmats;
 
+import lightningmats.armor.AmethystArmor;
 import lightningmats.armor.LightningArmor;
 //import lightningmats.biome.MyBiome;
 import lightningmats.blocks.BasicBlock;
@@ -31,14 +32,14 @@ import lightningmats.items.MultiTool;
 import lightningmats.items.MyItem2;
 import lightningmats.power.Battery;
 import lightningmats.power.Recipes;
-import lightningmats.power.bronzefurnace.BFurnace;
-import lightningmats.power.bronzefurnace.TileEntityBFurnace;
 import lightningmats.power.charger.TileEntityCharger;
 import lightningmats.power.energycell.TileEntityEnergyCell;
 import lightningmats.power.lightningrod.LightningRod;
 import lightningmats.power.lightningrod.TileEntityLightningRod;
 import lightningmats.power.macerator.Macerator;
 import lightningmats.power.macerator.TileEntityMacerator;
+import lightningmats.power.nickelfurnace.NickelFurnace;
+import lightningmats.power.nickelfurnace.TileEntityNickelFurnace;
 import lightningmats.power.solar.TileEntitySolar;
 import lightningmats.power.solar.TileEntitySolar2;
 import lightningmats.projectile.GrenadeEntity;
@@ -284,6 +285,7 @@ public class LightningMaterials {
 
 
 	public static ArmorMaterial MyArmorMaterial_1 = EnumHelper.addArmorMaterial("Lightning", 62, new int[]{4, 9, 7, 4}, 30);
+	public static ArmorMaterial GemArmor = EnumHelper.addArmorMaterial("Gems", 46, new int[]{2, 7, 6, 2}, 16);
 
 	//  DECLARE NEW TOOL MATERIAL
 	public static ToolMaterial MyToolMaterial = EnumHelper.addToolMaterial("Lightning", 3, 2341, 45.0F, 4.0F, 10);
@@ -381,6 +383,34 @@ public class LightningMaterials {
 	public static Item dustCoal;
 	public static Item GodBoots;
 	public static Block Chest;
+	public static Item NickelHelm;
+	public static Item PlatinumHelm;
+	public static Item ZincHelm;
+	public static Item RubyHelm;
+	public static Item AmethystHelm;
+	public static Item SapphireHelm;
+	public static Item EmeraldHelm;
+	public static Item NickelChestplate;
+	public static Item PlatinumChestplate;
+	public static Item ZincChestplate;
+	public static Item RubyChestplate;
+	public static Item AmethystChestplate;
+	public static Item SapphireChestplate;
+	public static Item EmeraldChestplate;
+	public static Item NickelLeggings;
+	public static Item PlatinumLeggings;
+	public static Item ZincLeggings;
+	public static Item RubyLeggings;
+	public static Item AmethystLeggings;
+	public static Item SapphireLeggings;
+	public static Item EmeraldLeggings;
+	public static Item NickelBoots;
+	public static Item PlatinumBoots;
+	public static Item ZincBoots;
+	public static Item RubyBoots;
+	public static Item AmethystBoots;
+	public static Item SapphireBoots;
+	public static Item EmeraldBoots;
 	/*TODO ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */	
 
 
@@ -775,40 +805,37 @@ public class LightningMaterials {
 		Detonater = new Detonater(5001, "Detonater").setCreativeTab(WeaponsTab).setMaxStackSize(1);
 		GameRegistry.registerItem(Detonater, "Detonater");
 
-		//  LOAD HELMET 
-		MyHelmet_1 = new LightningArmor(2060, MyArmorMaterial_1, 0, 0, "myarmor").setCreativeTab(ArmorTab);
+	/**
+	 * Register Armor
+	 */
+		MyHelmet_1 = new LightningArmor(2060, MyArmorMaterial_1, 0, 0, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyHelmet_1, "LightningHelm");
 
-		//  LOAD CHESTPLATE
-		MyChest_1 = new LightningArmor(2061, MyArmorMaterial_1, 0, 1, "myarmor").setCreativeTab(ArmorTab);
+		MyChest_1 = new LightningArmor(2061, MyArmorMaterial_1, 0, 1, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyChest_1, "LightningChestplate");
-
-		//  LOAD LEGGINGS    
-		MyLeggings_1 = new LightningArmor(2062, MyArmorMaterial_1, 0, 2, "myarmor").setCreativeTab(ArmorTab);
+    
+		MyLeggings_1 = new LightningArmor(2062, MyArmorMaterial_1, 0, 2, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyLeggings_1, "LightningLegs");
-
-
-		//  LOAD BOOTS   
-		MyBoots_1 = new LightningArmor(2063, MyArmorMaterial_1, 0, 3, "myarmor").setCreativeTab(ArmorTab);
+  
+		MyBoots_1 = new LightningArmor(2063, MyArmorMaterial_1, 0, 3, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyBoots_1, "LightningBoots");
+		
+		AmethystHelm = new AmethystArmor(2060, GemArmor, 0, 0, "lightningarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(AmethystHelm, "AmethystHelm");
+
+		AmethystChestplate = new AmethystArmor(2061, GemArmor, 0, 1, "lightningarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(AmethystChestplate, "AmethystChestplate");
+    
+		AmethystLeggings = new AmethystArmor(2062, GemArmor, 0, 2, "lightningarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(AmethystLeggings, "AmethystLeggings");
+  
+		AmethystBoots = new AmethystArmor(2063, GemArmor, 0, 3, "lightningarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(AmethystBoots, "AmethystBoots");
 
 
 		
 
 
-		//        Portal = new Portal(2500, "Portal").setLightLevel(0.75F).setResistance(2000000.0F).setHardness(.25F);
-		//        GameRegistry.registerBlock(Portal, "Portal");
-		//        (Portal, "Portal"); 
-		//		MinecraftForge.setBlockHarvestLevel(Portal, "pickaxe", 3);
-
-
-
-
-
-		//		MinecraftForge.setBlockHarvestLevel(blockMaceratorIdle, "pickaxe", 2);
-
-
-		//		MinecraftForge.setBlockHarvestLevel(Pipe, "pickaxe", 2);
 
 		blockMaceratorActive = new Macerator(1042, true).setHardness(3.7F).setLightLevel(0.9F).setBlockName("Macerator");
 		GameRegistry.registerBlock(blockMaceratorActive, "blockMaceratorActive");
@@ -817,44 +844,10 @@ public class LightningMaterials {
 			LightningRod = new LightningRod(1050, false).setCreativeTab(MachinesTab).setHardness(3.7F).setLightLevel(0.9F).setBlockName("Lightning Rod");
 			GameRegistry.registerBlock(LightningRod, "LightningRod");
 		}
-		//		MinecraftForge.setBlockHarvestLevel(blockMaceratorActive, "pickaxe", 2);
-
-
-		//		MinecraftForge.setBlockHarvestLevel(ChargerIdle, "pickaxe", 2);
-
-		//ChargerActive = new Charger(1044, true).setHardness(3.7F).setLightLevel(0.9F).setBlockName("Charger");
-		//GameRegistry.registerBlock(ChargerActive, "ChargerActive");
-
-		//		MinecraftForge.setBlockHarvestLevel(ChargerActive, "pickaxe", 2);
-
-		//SolarIdle = new Solar(1045, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("Solar Generator");
-		//GameRegistry.registerBlock(SolarIdle, "SolarIdle");
-
-		//		MinecraftForge.setBlockHarvestLevel(SolarIdle, "pickaxe", 2);
-
-		//SolarActive = new Solar(1046, true).setHardness(3.7F).setLightLevel(0.9F).setBlockName("Solar Generator");
-		//GameRegistry.registerBlock(SolarActive, "SolarActive");
-
-		//		MinecraftForge.setBlockHarvestLevel(SolarActive, "pickaxe", 2);
-
-		//Solar2Idle = new Solar2(1047, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("Solar Generator");
-		//GameRegistry.registerBlock(Solar2Idle, "Solar2Idle");
-
-		//		MinecraftForge.setBlockHarvestLevel(Solar2Idle, "pickaxe", 2);
-
-		//Solar2Active = new Solar2(1048, true).setHardness(3.7F).setLightLevel(0.9F).setBlockName("Solar Generator");
-		//GameRegistry.registerBlock(Solar2Active, "Solar2Active");
-
-		//		MinecraftForge.setBlockHarvestLevel(Solar2Active, "pickaxe", 2);
-
+		
 
 		Battery = new Battery(6000, "Battery").setCreativeTab(MachinesTab).setMaxStackSize(1);
 		GameRegistry.registerItem(Battery, "Battery");
-
-
-		//        DimensionManager.registerProviderType(Main.dimensionId, MyDimension.class, false);
-
-		//        DimensionManager.registerDimension(Main.dimensionId, Main.dimensionId);
 
 
 
@@ -930,7 +923,7 @@ public class LightningMaterials {
 		GameRegistry.registerTileEntity(TileEntitySolar2.class, "lightningmats:Solar2");
 		GameRegistry.registerTileEntity(TileEntityLightningRod.class, "lightningmats:LightningRod");
 		GameRegistry.registerTileEntity(TileEntityEnergyCell.class, "lightningmats:EnergyCell");
-		GameRegistry.registerTileEntity(TileEntityBFurnace.class, "lightningmats:BFurnace");
+		GameRegistry.registerTileEntity(TileEntityNickelFurnace.class, "lightningmats:BFurnace");
 
 
 
@@ -943,10 +936,10 @@ public class LightningMaterials {
 		blockMaceratorIdle = new Macerator(1041, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("Macerator");
 		GameRegistry.registerBlock(blockMaceratorIdle, "blockMaceratorIdle");
 		
-		BFurnace = new BFurnace(1041, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("BFurnace");
+		BFurnace = new NickelFurnace(1041, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("BFurnace");
 		GameRegistry.registerBlock(BFurnace, "BFurnace");
 		
-		BFurnaceActive = new BFurnace(1041, true).setHardness(3.7F).setBlockName("BFurnace");
+		BFurnaceActive = new NickelFurnace(1041, true).setHardness(3.7F).setBlockName("BFurnace");
 		GameRegistry.registerBlock(BFurnaceActive, "BFurnaceActive");
 		
 		Chest = new LightningChest(2).setLightLevel(0.5F).setResistance(20.0F).setHardness(3.25F).setBlockName("Lightning Chest").setCreativeTab(BlocksTab);

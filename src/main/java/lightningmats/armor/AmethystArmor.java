@@ -39,8 +39,8 @@ public class AmethystArmor extends ItemArmor {
 				this.integer = "";
 			}
 			
-			this.name = "LightningHelm";
-			this.setUnlocalizedName("LightningHelm");
+			this.name = "AmethystHelm";
+			this.setUnlocalizedName("AmethystHelm");
 			this.texturePath += myArmorName + "_1.png";
 			this.iconPath += (this.name + this.integer);
 			break;
@@ -50,8 +50,8 @@ public class AmethystArmor extends ItemArmor {
 			}else{
 				this.integer = "";
 			}
-			this.name = "LightningChestplate";
-			this.setUnlocalizedName("LightningChestplate");
+			this.name = "AmethystChestplate";
+			this.setUnlocalizedName("AmethystChestplate");
 			this.texturePath += myArmorName + "_1.png";
 			this.iconPath += (this.name + this.integer);
 			break;
@@ -61,8 +61,8 @@ public class AmethystArmor extends ItemArmor {
 			}else{
 				this.integer = "";
 			}
-			this.name = "LightningLeggings";
-			this.setUnlocalizedName("LightningLeggings");
+			this.name = "AmethystLeggings";
+			this.setUnlocalizedName("AmethystLeggings");
 			this.texturePath += myArmorName + "_2.png";
 			this.iconPath += (this.name + this.integer);
 			break;
@@ -72,8 +72,8 @@ public class AmethystArmor extends ItemArmor {
 			}else{
 				this.integer = "";
 			}
-			this.name = "LightningBoots";
-			this.setUnlocalizedName("LightningBoots");
+			this.name = "AmethystBoots";
+			this.setUnlocalizedName("AmethystBoots");
 			this.texturePath += myArmorName + "_1.png";
 			this.iconPath += (name + integer);
 			break;
@@ -85,23 +85,7 @@ public class AmethystArmor extends ItemArmor {
 		this.itemIcon = reg.registerIcon(this.iconPath);
 	}
 	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemstack)
-	{
-		if(player.getCurrentArmor(0) !=null && player.getCurrentArmor(0).getItem().equals(LightningMaterials.MyBoots_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.jump.id, 1, 1));
-		}
-
-		if(player.getCurrentArmor(1) !=null && player.getCurrentArmor(1).getItem().equals(LightningMaterials.MyLeggings_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 1, 2));
-		}
-		if(player.getCurrentArmor(3) !=null && player.getCurrentArmor(3).getItem().equals(LightningMaterials.MyHelmet_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 4500, 2));
-		}
-	}
+	
 @SideOnly(Side.CLIENT)
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 	

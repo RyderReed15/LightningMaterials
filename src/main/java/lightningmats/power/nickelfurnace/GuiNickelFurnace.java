@@ -1,4 +1,4 @@
-package lightningmats.power.bronzefurnace;
+package lightningmats.power.nickelfurnace;
 
 import lightningmats.tooltips.BaseGui;
 import lightningmats.tooltips.GuiProgressBar;
@@ -9,16 +9,16 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-public class GuiBFurnace extends BaseGui{
+public class GuiNickelFurnace extends BaseGui{
 		public static final ResourceLocation texture = new ResourceLocation("lightningmats:textures/gui/BFurnace.png");
 		
-		final ContainerBFurnace b;
-		public TileEntityBFurnace macerator;
+		final ContainerNickelFurnace b;
+		public TileEntityNickelFurnace macerator;
 		GuiProgressBar pb;
 		
-		public GuiBFurnace(InventoryPlayer invPlayer, TileEntityBFurnace entity) {
-			super(new ContainerBFurnace(invPlayer, entity));
-			b = (ContainerBFurnace) inventorySlots;
+		public GuiNickelFurnace(InventoryPlayer invPlayer, TileEntityNickelFurnace entity) {
+			super(new ContainerNickelFurnace(invPlayer, entity));
+			b = (ContainerNickelFurnace) inventorySlots;
 			this.macerator = entity;
 
 			this.xSize = 176;

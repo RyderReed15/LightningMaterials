@@ -1,9 +1,6 @@
 package lightningmats.handlers;
 
 import lightningmats.LightningMaterials;
-import lightningmats.power.bronzefurnace.ContainerBFurnace;
-import lightningmats.power.bronzefurnace.GuiBFurnace;
-import lightningmats.power.bronzefurnace.TileEntityBFurnace;
 import lightningmats.power.charger.ContainerCharger;
 import lightningmats.power.charger.GuiCharger;
 import lightningmats.power.charger.TileEntityCharger;
@@ -19,6 +16,9 @@ import lightningmats.power.solar.TileEntitySolar2;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import lightningmats.power.nickelfurnace.ContainerNickelFurnace;
+import lightningmats.power.nickelfurnace.GuiNickelFurnace;
+import lightningmats.power.nickelfurnace.TileEntityNickelFurnace;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
@@ -53,8 +53,8 @@ public class GuiHandler implements IGuiHandler{
 						} 
 						
 						case LightningMaterials.guiIdBFurnace:
-							if (entity instanceof TileEntityBFurnace) {
-								return new ContainerBFurnace(player.inventory, (TileEntityBFurnace) entity);
+							if (entity instanceof TileEntityNickelFurnace) {
+								return new ContainerNickelFurnace(player.inventory, (TileEntityNickelFurnace) entity);
 							} 
 					
 						return null;
@@ -90,8 +90,8 @@ public class GuiHandler implements IGuiHandler{
 						} 
 						
 						case LightningMaterials.guiIdBFurnace:
-							if (entity instanceof TileEntityBFurnace) {
-								return new GuiBFurnace(player.inventory, (TileEntityBFurnace) entity);
+							if (entity instanceof TileEntityNickelFurnace) {
+								return new GuiNickelFurnace(player.inventory, (TileEntityNickelFurnace) entity);
 							}
 						
 						return null;

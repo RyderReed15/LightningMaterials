@@ -1,4 +1,4 @@
-package lightningmats.power.bronzefurnace;
+package lightningmats.power.nickelfurnace;
 
 
 import java.util.Random;
@@ -24,7 +24,7 @@ import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BFurnace extends BlockContainer{
+public class NickelFurnace extends BlockContainer{
 
 
 				private final Random maceratorRand = new Random();
@@ -35,7 +35,7 @@ public class BFurnace extends BlockContainer{
 		@SideOnly(Side.CLIENT)
 		private IIcon maceratorIconTop;
 		
-		public BFurnace(int id, boolean isActive) {
+		public NickelFurnace(int id, boolean isActive) {
 			super(Material.rock);
 			
 			this.isActive = isActive;
@@ -153,7 +153,7 @@ public class BFurnace extends BlockContainer{
 		 */
 		public TileEntity createNewTileEntity(World par1World)
 		{
-			return new TileEntityBFurnace();
+			return new TileEntityNickelFurnace();
 		}
 
 		/**
@@ -185,7 +185,7 @@ public class BFurnace extends BlockContainer{
 
 			if (par6ItemStack.hasDisplayName())
 			{
-				((TileEntityBFurnace)par1World.getTileEntity(par2, par3, par4)).setGuiDisplayName(par6ItemStack.getDisplayName());
+				((TileEntityNickelFurnace)par1World.getTileEntity(par2, par3, par4)).setGuiDisplayName(par6ItemStack.getDisplayName());
 			}
 		}
 
@@ -196,7 +196,7 @@ public class BFurnace extends BlockContainer{
 		{
 			if (!keepMaceratorInventory)
 			{
-				TileEntityBFurnace TileEntityMacerator = (TileEntityBFurnace)par1World.getTileEntity(par2, par3, par4);
+				TileEntityNickelFurnace TileEntityMacerator = (TileEntityNickelFurnace)par1World.getTileEntity(par2, par3, par4);
 
 				if (TileEntityMacerator != null)
 				{
@@ -274,7 +274,7 @@ public class BFurnace extends BlockContainer{
 		@Override
 		public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 			// TODO Auto-generated method stub
-			return new TileEntityBFurnace();
+			return new TileEntityNickelFurnace();
 		}
 		
 	}

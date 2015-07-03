@@ -1,4 +1,4 @@
-package lightningmats.power.bronzefurnace;
+package lightningmats.power.nickelfurnace;
 
 
 import lightningmats.items.ItemPowerStorage;
@@ -15,14 +15,14 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ContainerBFurnace extends Container implements IProgressProvider
+public class ContainerNickelFurnace extends Container implements IProgressProvider
 	{
-		private TileEntityBFurnace macerator;
+		private TileEntityNickelFurnace macerator;
 		private int lastCookTime;
 		private int lastCookTime1;
 		private int lastCookTime2;
 		private int lastBurnTime;
-		public ContainerBFurnace(InventoryPlayer par1InventoryPlayer, TileEntityBFurnace par2TileEntityFurnace)
+		public ContainerNickelFurnace(InventoryPlayer par1InventoryPlayer, TileEntityNickelFurnace par2TileEntityFurnace)
 		{
 			Item Item = new Item();
 			this.macerator = par2TileEntityFurnace;
@@ -153,7 +153,7 @@ public class ContainerBFurnace extends Container implements IProgressProvider
 							return null;
 						}}
 					
-					else if (TileEntityBFurnace.isItemFuel(itemstack1))
+					else if (TileEntityNickelFurnace.isItemFuel(itemstack1))
 					{
 						if (!this.mergeItemStack(itemstack1, 1, 2, false))
 						{
