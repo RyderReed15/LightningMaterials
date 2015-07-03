@@ -109,7 +109,7 @@ public class ContainerMacerator extends Container implements IProgressProvider
 
 				if (par2 == 2)
 				{
-					if (!this.mergeItemStack(itemstack1, 3, 39, true))
+					if (!this.mergeItemStack(itemstack1, 4, 40, true))
 					{
 						return null;
 					}
@@ -132,19 +132,19 @@ public class ContainerMacerator extends Container implements IProgressProvider
 							return null;
 						}
 					}
-					else if (par2 >= 3 && par2 < 30)
+					else if (par2 >= 4 && par2 < 31)
 					{
-						if (!this.mergeItemStack(itemstack1, 30, 39, false))
+						if (!this.mergeItemStack(itemstack1, 31, 40, false))
 						{
 							return null;
 						}
 					}
-					else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+					else if (par2 >= 31 && par2 < 40 && !this.mergeItemStack(itemstack1, 4, 31, false))
 					{
 						return null;
 					}
 				}
-				else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+				else if (!this.mergeItemStack(itemstack1, 4, 40, false))
 				{
 					return null;
 				}

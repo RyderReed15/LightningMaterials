@@ -504,7 +504,7 @@ public class TileEntityMacerator extends TileEnergyHandler implements ISidedInve
 		
 		}
 		public boolean canPower(){
-			if((this.CAPACITY) <= this.storage.energy){ this.storage.energy = this.CAPACITY; return false;}			
+			if((this.CAPACITY) <= this.storage.energy){return false;}
 			return true;
 		}
 		@Override

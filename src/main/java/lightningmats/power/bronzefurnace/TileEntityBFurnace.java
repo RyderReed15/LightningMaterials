@@ -154,7 +154,7 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
     	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     	{
         	super.readFromNBT(par1NBTTagCompound);
-        	NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 0);
+        	NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
         	this.slots = new ItemStack[this.getSizeInventory()];
 
         	for (int i = 0; i < nbttaglist.tagCount(); ++i)
@@ -379,10 +379,10 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
         	}else{
             		ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
             		if(itemstack == null) return false;
-            		if(this.slots[2] == null) return true;
-            		if(!this.slots[2].isItemEqual(itemstack)) return false;
-            		int result = slots[2].stackSize + itemstack.stackSize;
-            		return result <= getInventoryStackLimit() && result <= this.slots[2].getMaxStackSize();
+            		if(this.slots[5] == null) return true;
+            		if(!this.slots[5].isItemEqual(itemstack)) return false;
+            		int result = slots[5].stackSize + itemstack.stackSize;
+            		return result <= getInventoryStackLimit() && result <= this.slots[5].getMaxStackSize();
         	}
     	}
 
@@ -393,10 +393,10 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
         	if(this.canSmelt()){
             	ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
             
-            	if(this.slots[2] == null){
-                	this.slots[2] = itemstack.copy();
-            	}else if (this.slots[2].getItem() == itemstack.getItem()){
-                	this.slots[2].stackSize += itemstack.stackSize;
+            	if(this.slots[5] == null){
+                	this.slots[5] = itemstack.copy();
+            	}else if (this.slots[5].getItem() == itemstack.getItem()){
+                	this.slots[5].stackSize += itemstack.stackSize;
             	}
 
             	--this.slots[0].stackSize;
@@ -412,10 +412,10 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
         	}else{
             		ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[4]);
             		if(itemstack == null) return false;
-            		if(this.slots[5] == null) return true;
-            		if(!this.slots[5].isItemEqual(itemstack)) return false;
-            		int result = slots[5].stackSize + itemstack.stackSize;
-            		return result <= getInventoryStackLimit() && result <= this.slots[5].getMaxStackSize();
+            		if(this.slots[6] == null) return true;
+            		if(!this.slots[6].isItemEqual(itemstack)) return false;
+            		int result = slots[6].stackSize + itemstack.stackSize;
+            		return result <= getInventoryStackLimit() && result <= this.slots[6].getMaxStackSize();
         	}
     	}
 
@@ -426,10 +426,10 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
         	if(this.canSmelt2()){
             	ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[4]);
             
-            	if(this.slots[5] == null){
-                	this.slots[5] = itemstack.copy();
-            	}else if (this.slots[5].getItem() == itemstack.getItem()){
-                	this.slots[5].stackSize += itemstack.stackSize;
+            	if(this.slots[6] == null){
+                	this.slots[6] = itemstack.copy();
+            	}else if (this.slots[6].getItem() == itemstack.getItem()){
+                	this.slots[6].stackSize += itemstack.stackSize;
             	}
 
             	--this.slots[4].stackSize;
@@ -440,10 +440,10 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
         	}
     	}
     	private boolean canSmelt3(){
-        	if (this.slots[6] == null){
+        	if (this.slots[2] == null){
             	return false;
         	}else{
-            		ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[6]);
+            		ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[2]);
             		if(itemstack == null) return false;
             		if(this.slots[7] == null) return true;
             		if(!this.slots[7].isItemEqual(itemstack)) return false;
@@ -457,7 +457,7 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
      	*/
     	public void smeltItem3(){
         	if(this.canSmelt3()){
-            	ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[6]);
+            	ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[2]);
             
             	if(this.slots[7] == null){
                 	this.slots[7] = itemstack.copy();
@@ -466,17 +466,17 @@ public class TileEntityBFurnace extends TileEnergyHandler implements ISidedInven
                 	this.slots[7].stackSize += itemstack.stackSize;
             	}
 
-            	--this.slots[6].stackSize;
+            	--this.slots[2].stackSize;
 
-            	if(this.slots[6].stackSize <= 0){
-                	this.slots[6] = null;
+            	if(this.slots[2].stackSize <= 0){
+                	this.slots[2] = null;
             	}
         	}
     	}
 
 
     	/**
-     	* Returns the number of ticks that the supplied fuel item will keep the furnace burning, or 0 if the item isn't
+     	* Returns the number 2f ticks that the supplied fuel item will keep the furnace burning, or 0 if the item isn't
      	* fuel
      	*/
     	public static int getItemPower(ItemStack par0ItemStack){

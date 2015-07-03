@@ -26,7 +26,7 @@ public class OreGen implements IWorldGenerator {
             int Xcoord = BlockX + random.nextInt(16);
             int Zcoord = BlockZ + random.nextInt(16);
             int Ycoord = random.nextInt(LightningMaterials.lightningHeight); 
-            (new WorldGenMinable(LightningMaterials.MyBlock_1, LightningMaterials.lightningPerGroup)).generate(world, random, Xcoord, Ycoord, Zcoord);
+            (new WorldGenMinable(LightningMaterials.LightningOre, LightningMaterials.lightningPerGroup)).generate(world, random, Xcoord, Ycoord, Zcoord);
             
             
         }

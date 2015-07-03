@@ -1,6 +1,7 @@
 package lightningmats.power.bronzefurnace;
 
 
+import lightningmats.items.ItemPowerStorage;
 import lightningmats.tooltips.IProgressProvider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,6 +9,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import cpw.mods.fml.relauncher.Side;
@@ -20,16 +22,16 @@ public class ContainerBFurnace extends Container implements IProgressProvider
 		private int lastCookTime1;
 		private int lastCookTime2;
 		private int lastBurnTime;
-
 		public ContainerBFurnace(InventoryPlayer par1InventoryPlayer, TileEntityBFurnace par2TileEntityFurnace)
 		{
+			Item Item = new Item();
 			this.macerator = par2TileEntityFurnace;
 			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 0, 56, 35));
 			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 4, 56, 17));
-			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 6, 56, 53));
+			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 2, 56, 53));
 			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 1, 8, 56));
-			this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 2, 116, 35));
-			this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 5, 116, 17));
+			this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 5, 116, 35));
+			this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 6, 116, 17));
 			this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 7, 116, 53));
 			this.addSlotToContainer(new Slot(par2TileEntityFurnace, 3, 27, 8));
 			int i;
@@ -135,18 +137,18 @@ public class ContainerBFurnace extends Container implements IProgressProvider
 
 				if (par2 == 2)
 				{
-					if (!this.mergeItemStack(itemstack1, 3, 39, true))
+					if (!this.mergeItemStack(itemstack1, 8, 44, true))
 					{
 						return null;
 					}
 
 					slot.onSlotChange(itemstack1, itemstack);
 				}
-				else if (par2 != 1 && par2 != 0)
+				else if (par2 != 1 && par2 != 0 && par2 != 2 && par2 != 3 && par2 != 4)
 				{
 					if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
 					{
-						if (!this.mergeItemStack(itemstack1, 0, 1, false))
+						if (!this.mergeItemStack(itemstack1, 0, 4, false))
 						{
 							return null;
 						}}
@@ -158,19 +160,19 @@ public class ContainerBFurnace extends Container implements IProgressProvider
 							return null;
 						}
 					}
-					else if (par2 >= 3 && par2 < 30)
+					else if (par2 >= 8 && par2 < 35)
 					{
-						if (!this.mergeItemStack(itemstack1, 30, 39, false))
+						if (!this.mergeItemStack(itemstack1, 35, 44, false))
 						{
 							return null;
 						}
 					}
-					else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false))
+					else if (par2 >= 35 && par2 < 44 && !this.mergeItemStack(itemstack1, 8, 35, false))
 					{
 						return null;
 					}
 				}
-				else if (!this.mergeItemStack(itemstack1, 3, 39, false))
+				else if (!this.mergeItemStack(itemstack1, 8, 44, false))
 				{
 					return null;
 				}

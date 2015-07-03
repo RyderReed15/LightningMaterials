@@ -32,12 +32,12 @@ public class Recipes {
 
     private Recipes()
     {
-        this.func_151393_a(Blocks.iron_ore, new ItemStack(LightningMaterials.IronDust, 1), 0.7F);
-        this.func_151393_a(Blocks.gold_ore, new ItemStack(LightningMaterials.GoldDust, 1), 1.0F);
-        this.func_151393_a(Blocks.diamond_ore, new ItemStack(LightningMaterials.DiamondDust, 1), 1.0F);
-        this.func_151393_a(Blocks.emerald_ore, new ItemStack(LightningMaterials.EmeraldDust, 1), 1.0F);
+        this.func_151393_a(Blocks.iron_ore, new ItemStack(LightningMaterials.dustIron, 1), 0.7F);
+        this.func_151393_a(Blocks.gold_ore, new ItemStack(LightningMaterials.dustGold, 1), 1.0F);
+        this.func_151393_a(Blocks.diamond_ore, new ItemStack(LightningMaterials.dustDiamond, 1), 1.0F);
+        this.func_151393_a(Blocks.emerald_ore, new ItemStack(LightningMaterials.dustEmerald, 1), 1.0F);
         this.func_151393_a(Blocks.netherrack, new ItemStack(Items.netherbrick, 1), 0.1F);
-        this.func_151393_a(Blocks.coal_ore, new ItemStack(LightningMaterials.CoalDust, 2), 0.1F);
+        this.func_151393_a(Blocks.coal_ore, new ItemStack(LightningMaterials.dustCoal, 2), 0.1F);
         this.func_151393_a(Blocks.redstone_ore, new ItemStack(Items.redstone, 1), 0.7F);
         this.func_151393_a(Blocks.lapis_ore, new ItemStack(Items.dye, 1, 4), 0.2F);
         this.func_151393_a(Blocks.quartz_ore, new ItemStack(Items.quartz, 1), 0.2F);

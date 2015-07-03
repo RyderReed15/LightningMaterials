@@ -21,14 +21,14 @@ public class PickupHandler {
 		if (event.pickedUp.getEntityItem().getItem() == Item.getItemFromBlock(LightningMaterials.PlatinumOre)){
 			event.player.addStat(LightningMaterials.PlatinumAch, 1);
 		}
-		if (event.pickedUp.getEntityItem().getItem() == Item.getItemFromBlock(LightningMaterials.MyBlock_1)){
+		if (event.pickedUp.getEntityItem().getItem() == Item.getItemFromBlock(LightningMaterials.LightningOre)){
 			event.player.addStat(LightningMaterials.LightningAch, 1);
 		}
 	}
 	@SubscribeEvent
 	public void OnCrafted(PlayerEvent.ItemCraftedEvent event)
 	{
-	if (event.crafting.getItem() == LightningMaterials.MySword_1){
+	if (event.crafting.getItem() == LightningMaterials.LightningSword){
 		event.player.addStat(LightningMaterials.SwordAch, 1);
 	}
 	if (event.crafting.getItem() == Item.getItemFromBlock(LightningMaterials.SolarIdle)){

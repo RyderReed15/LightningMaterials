@@ -113,7 +113,7 @@ public class LightningMaterials {
 	public static boolean TFRecipes;
 	public static boolean isTFLoaded=false;
 	public static boolean IngameModOptions;
-	public static int maceratorSpeed = 76;
+	public static int maceratorSpeed = 101;
 	public static int maceratorOutput = 2;
 	public static int maceratorMaxPower = 40000;
 	public static int maceratorPowerUsage = 40;
@@ -211,30 +211,30 @@ public class LightningMaterials {
 	public static Item Battery;
 	public static Item Grenade;
 	//  DECLARE THE SWORD 
-	public static Item MySword_1;
+	public static Item LightningSword;
 
 	//  DECLARE THE PICKAXE 
-	public static Item MyPickaxe_1;
+	public static Item LightningPickaxe;
 
 	//  DECLARE THE AXE 
-	public static Item MyAxe_1;
+	public static Item LightningAxe;
 
 	//  DECLARE THE SPADE 
-	public static Item MySpade_1;
+	public static Item LightningSpade;
 
 	//  DECLARE THE TOOL 
 	public static Item MultiTool;
 
 	//  DECLARE THE ITEM
-	public static Item MyItem_1;
+	public static Item LightningIngot;
 
 	//  DECLARE THE ITEM
-	public static Item MyItem_2;
+	public static Item LightningNugget;
 
 	//  DECLARE THE FOOD
-	public static Item MyFood_1;
+	public static Item LightningLoaf;
 
-	public static Block MyBlock_1;
+	public static Block LightningOre;
 
 	public static Block C4_1;
 
@@ -368,17 +368,17 @@ public class LightningMaterials {
 	public static Item NickelNugget;
 	public static Item PlatinumNugget;
 	public static Item ZincNugget;
-	public static Item NickelDust;
-	public static Item PlatinumDust;
-	public static Item ZincDust;
-	public static Item RubyDust;
-	public static Item AmethystDust;
-	public static Item SapphireDust;
-	public static Item EmeraldDust;
-	public static Item DiamondDust;
-	public static Item IronDust;
-	public static Item GoldDust;
-	public static Item CoalDust;
+	public static Item dustNickel;
+	public static Item dustPlatinum;
+	public static Item dustZinc;
+	public static Item dustRuby;
+	public static Item dustAmethyst;
+	public static Item dustSapphire;
+	public static Item dustEmerald;
+	public static Item dustDiamond;
+	public static Item dustIron;
+	public static Item dustGold;
+	public static Item dustCoal;
 	public static Item GodBoots;
 	public static Block Chest;
 	/*TODO ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */	
@@ -464,7 +464,7 @@ public class LightningMaterials {
 
 		BlocksTab = new CreativeTabs("MyCreativeTab_1") {
 			public ItemStack getIconItemStack() {
-				return new ItemStack(MyBlock_1, 0, 0);   // Icon, Stack Size, Tab Position
+				return new ItemStack(LightningOre, 0, 0);   // Icon, Stack Size, Tab Position
 			}
 
 			@Override
@@ -476,7 +476,7 @@ public class LightningMaterials {
 		
 		ValuablesTab = new CreativeTabs("MyCreativeTab_6") {
 			public ItemStack getIconItemStack() {
-				return new ItemStack(MyItem_1, 0, 0);   // Icon, Stack Size, Tab Position
+				return new ItemStack(LightningIngot, 0, 0);   // Icon, Stack Size, Tab Position
 			}
 
 			@Override
@@ -488,7 +488,7 @@ public class LightningMaterials {
 		
 		ToolsTab = new CreativeTabs("MyCreativeTab_4") {
 			public ItemStack getIconItemStack() {
-				return new ItemStack(MyPickaxe_1, 0, 0);   // Icon, Stack Size, Tab Position
+				return new ItemStack(LightningPickaxe, 0, 0);   // Icon, Stack Size, Tab Position
 			}
 
 			@Override
@@ -535,8 +535,7 @@ public class LightningMaterials {
 		};
 		
 
-		Chest = new LightningChest(2).setLightLevel(0.5F).setResistance(20.0F).setHardness(3.25F).setBlockName("Lightning Chest").setCreativeTab(BlocksTab);
-		GameRegistry.registerBlock(Chest, "Chest");
+		
 		
 		LightningLadder = new LightningLadder().setBlockName("LightingLadder").setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(2);
 		GameRegistry.registerBlock(LightningLadder, "LightningLadder");
@@ -552,6 +551,18 @@ public class LightningMaterials {
 
 		ZincOre = new BasicBlock(3010, Material.rock, "ZincOre").setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(3.25F);
 		GameRegistry.registerBlock(ZincOre, "ZincOre");
+		
+		RubyOre = new GemOre(3011, Material.rock, "RubyOre", Ruby, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
+		GameRegistry.registerBlock(RubyOre, "RubyOre");
+
+		SapphireOre = new GemOre(3012, Material.rock, "SapphireOre", Sapphire, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
+		GameRegistry.registerBlock(SapphireOre, "SapphireOre");
+
+		AmethystOre = new GemOre(3008, Material.rock, "AmethystOre", Amethyst, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
+		GameRegistry.registerBlock(AmethystOre, "AmethystOre");
+		
+		LightningOre = new BasicBlock(2501, Material.iron, "LightningOre").setCreativeTab(BlocksTab).setLightLevel(0.5F).setResistance(20.0F).setHardness(3.25F);
+		GameRegistry.registerBlock(LightningOre, "LightningOre");
 
 
 		/**
@@ -595,6 +606,9 @@ public class LightningMaterials {
 
 		ZincNugget = new BasicItem(2030, "ZincNugget").setCreativeTab(ValuablesTab).setMaxStackSize(64);
 		GameRegistry.registerItem(ZincNugget, "ZincNugget");
+		
+		LightningNugget = new MyItem2(2031, "LightningNugget").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(LightningNugget, "LightningNugget");
 
 		Amethyst = new BasicItem(2030, "Amethyst").setCreativeTab(ValuablesTab).setMaxStackSize(64);
 		GameRegistry.registerItem(Amethyst, "Amethyst");
@@ -604,15 +618,9 @@ public class LightningMaterials {
 
 		Sapphire = new BasicItem(2030, "Sapphire").setCreativeTab(ValuablesTab).setMaxStackSize(64);
 		GameRegistry.registerItem(Sapphire, "Sapphire");
-
-		RubyOre = new GemOre(3011, Material.rock, "RubyOre", Ruby, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
-		GameRegistry.registerBlock(RubyOre, "RubyOre");
-
-		SapphireOre = new GemOre(3012, Material.rock, "SapphireOre", Sapphire, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
-		GameRegistry.registerBlock(SapphireOre, "SapphireOre");
-
-		AmethystOre = new GemOre(3008, Material.rock, "AmethystOre", Amethyst, 1, 2).setCreativeTab(BlocksTab).setResistance(20.0F).setHardness(1.75F);
-		GameRegistry.registerBlock(AmethystOre, "AmethystOre");
+		
+		LightningIngot = new BasicItem(2030, "LightningIngot").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(LightningIngot, "LightningIngot");
 
 		NickelSword = new BasicSword(2021, Nickel, "NickelSword").setCreativeTab(WeaponsTab);
 		GameRegistry.registerItem(NickelSword, "NickelSword");
@@ -634,6 +642,9 @@ public class LightningMaterials {
 
 		EmeraldSword = new BasicSword(2021, Gems, "EmeraldSword").setCreativeTab(WeaponsTab);
 		GameRegistry.registerItem(EmeraldSword, "EmeraldSword");
+		
+		LightningSword = new LightningSword(2021, MyToolMaterial, "LightningSword").setCreativeTab(WeaponsTab);
+		GameRegistry.registerItem(LightningSword, "LightningSword");
 
 		NickelPick = new BasicPickaxe(2022, Nickel, "NickelPick").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(NickelPick, "NickelPick");
@@ -655,6 +666,9 @@ public class LightningMaterials {
 
 		EmeraldPick = new BasicPickaxe(2022, Gems, "EmeraldPick").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(EmeraldPick, "EmeraldPick");
+		
+		LightningPickaxe = new BasicPickaxe(2022, MyToolMaterial, "LightningPickaxe").setCreativeTab(ToolsTab);
+		GameRegistry.registerItem(LightningPickaxe, "LightningPickaxe");
 
 		NickelAxe = new BasicAxe(2222, Nickel, "NickelAxe").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(NickelAxe, "NickelAxe");
@@ -676,6 +690,9 @@ public class LightningMaterials {
 
 		EmeraldAxe = new BasicAxe(2222, Gems, "EmeraldAxe").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(EmeraldAxe, "EmeraldAxe");
+		
+		LightningAxe = new BasicAxe(2222, MyToolMaterial, "LightningAxe").setCreativeTab(ToolsTab);
+		GameRegistry.registerItem(LightningAxe, "LightningAxe");
 
 		NickelSpade = new BasicSpade(2223, Nickel, "NickelSpade").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(NickelSpade, "NickelSpade");
@@ -697,121 +714,52 @@ public class LightningMaterials {
 
 		EmeraldSpade = new BasicSpade(2223, Gems, "EmeraldSpade").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(EmeraldSpade, "EmeraldSpade");
+		
+		LightningSpade = new BasicSpade(2223, MyToolMaterial, "LightningSpade").setCreativeTab(ToolsTab);
+		GameRegistry.registerItem(LightningSpade, "LightningSpade");
 
-		NickelDust = new BasicItem(2030, "NickelDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(NickelDust, "NickelDust");
+		dustNickel = new BasicItem(2030, "NickelDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustNickel, "dustNickel");
 
-		PlatinumDust = new BasicItem(2030, "PlatinumDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(PlatinumDust, "PlatinumDust");
+		dustPlatinum = new BasicItem(2030, "PlatinumDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustPlatinum, "dustPlatinum");
 
-		ZincDust = new BasicItem(2030, "ZincDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(ZincDust, "ZincDust");
+		dustZinc = new BasicItem(2030, "ZincDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustZinc, "dustZinc");
 
-		RubyDust = new BasicItem(2030, "RubyDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(RubyDust, "RubyDust");
+		dustRuby = new BasicItem(2030, "RubyDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustRuby, "dustRuby");
 
-		AmethystDust = new BasicItem(2030, "AmethystDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(AmethystDust, "AmethystDust");
+		dustAmethyst = new BasicItem(2030, "AmethystDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustAmethyst, "dustAmethyst");
 
-		SapphireDust = new BasicItem(2030, "SapphireDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(SapphireDust, "SapphireDust");
+		dustSapphire = new BasicItem(2030, "SapphireDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustSapphire, "dustSapphire");
 
-		EmeraldDust = new BasicItem(2030, "EmeraldDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(EmeraldDust, "EmeraldDust");
+		dustEmerald = new BasicItem(2030, "EmeraldDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustEmerald, "dustEmerald");
 
-		DiamondDust = new BasicItem(2030, "DiamondDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(DiamondDust, "DiamondDust");
+		dustDiamond = new BasicItem(2030, "DiamondDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustDiamond, "dustDiamond");
 
-		IronDust = new BasicItem(2030, "IronDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(IronDust, "IronDust");
+		dustIron = new BasicItem(2030, "IronDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustIron, "dustIron");
 
-		GoldDust = new BasicItem(2030, "GoldDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(GoldDust, "GoldDust");
+		dustGold = new BasicItem(2030, "GoldDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustGold, "dustGold");
 
-		CoalDust = new BasicItem(2030, "CoalDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(CoalDust, "CoalDust");
+		dustCoal = new BasicItem(2030, "CoalDust").setCreativeTab(ValuablesTab).setMaxStackSize(64);
+		GameRegistry.registerItem(dustCoal, "dustCoal");
 
-
-
-
-
-
-
-
-
-
-		//  REGISTER YOUR ENTITY
-
-
-
-
-		//  LOAD THE SWORD
-		MySword_1 = new LightningSword(2021, MyToolMaterial, "LightningSword").setCreativeTab(WeaponsTab);
-		GameRegistry.registerItem(MySword_1, "LightningSword");
-
-
-		//  LOAD THE PICKAXE
-		MyPickaxe_1 = new BasicPickaxe(2022, MyToolMaterial, "LightningPickaxe").setCreativeTab(ToolsTab);
-		GameRegistry.registerItem(MyPickaxe_1, "LightningPickaxe");
-
-
-		//  LOAD THE AXE
-		MyAxe_1 = new BasicAxe(2222, MyToolMaterial, "LightningAxe").setCreativeTab(ToolsTab);
-		GameRegistry.registerItem(MyAxe_1, "LightningAxe");
-
-
-		//  LOAD THE SPADE
-		MySpade_1 = new BasicSpade(2223, MyToolMaterial, "LightningSpade").setCreativeTab(ToolsTab);
-		GameRegistry.registerItem(MySpade_1, "LightningSpade");
-
-
-		//  LOAD THE MULTITOOL
 		MultiTool = new MultiTool(5000, MyToolMaterial3, "MultiTool").setCreativeTab(ToolsTab);
 		GameRegistry.registerItem(MultiTool, "LightningMultiTool");
 
-
-		//  LOAD THE ITEM
-		MyItem_1 = new BasicItem(2030, "LightningIngot").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(MyItem_1, "LightningIngot");
-
-
-		//  LOAD THE ITEM
-		MyItem_2 = new MyItem2(2031, "LightningNugget").setCreativeTab(ValuablesTab).setMaxStackSize(64);
-		GameRegistry.registerItem(MyItem_2, "LightningNugget");
-
-
-		//        DustD = new MyItem2(2031, "DustD").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustD, "DustD");
-		//        (DustD, "Diamond Dust");
-		//        
-		//        DustC = new MyItem2(2031, "DustC").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustC, "DustC");
-		//        (DustC, "Coal Dust");
-		//        
-		//        DustG = new MyItem2(2031, "DustG").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustG, "DustG");
-		//        (DustG, "Gold Dust");
-		//        
-		//        DustI = new MyItem2(2031, "DustI").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustI, "DustI");
-		//        (DustI, "Iron Dust");
-		//        
-		//        DustE = new MyItem2(2031, "DustE").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustE, "DustE");
-		//        (DustE, "Emerald Dust");
-		//        
-		//        DustL = new MyItem2(2031, "DustL").setCreativeTab(MyCreativeTab_1).setMaxStackSize(64);
-		//        GameRegistry.registerItem(DustL, "DustL");
-		//        (DustL, "Lapis Dust");
-
-		//  LOAD THE FOOD
-		MyFood_1 = new LightningLoaf(2040, 20, 5.0F, true, "LightningLoaf").setPotionEffect(Potion.resistance.id, 30, 2, 1.0F).setAlwaysEdible().setCreativeTab(ValuablesTab);
-		GameRegistry.registerItem(MyFood_1, "LightningLoaf");
+		LightningLoaf = new LightningLoaf(2040, 20, 5.0F, true, "LightningLoaf").setPotionEffect(Potion.resistance.id, 30, 2, 1.0F).setAlwaysEdible().setCreativeTab(ValuablesTab);
+		GameRegistry.registerItem(LightningLoaf, "LightningLoaf");
 
 
 		//  LOAD THE BLOCK 
-		MyBlock_1 = new BasicBlock(2501, Material.iron, "LightningOre").setCreativeTab(BlocksTab).setLightLevel(0.5F).setResistance(20.0F).setHardness(3.25F);
-		GameRegistry.registerBlock(MyBlock_1, "LightningOre");
+		
 
 
 		Lightning = new BasicItem(2471, "Lightning");
@@ -998,8 +946,11 @@ public class LightningMaterials {
 		BFurnace = new BFurnace(1041, false).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("BFurnace");
 		GameRegistry.registerBlock(BFurnace, "BFurnace");
 		
-		BFurnaceActive = new BFurnace(1041, true).setHardness(3.7F).setCreativeTab(MachinesTab).setBlockName("BFurnace");
+		BFurnaceActive = new BFurnace(1041, true).setHardness(3.7F).setBlockName("BFurnace");
 		GameRegistry.registerBlock(BFurnaceActive, "BFurnaceActive");
+		
+		Chest = new LightningChest(2).setLightLevel(0.5F).setResistance(20.0F).setHardness(3.25F).setBlockName("Lightning Chest").setCreativeTab(BlocksTab);
+		GameRegistry.registerBlock(Chest, "Chest");
 
 
 		//ChargerIdle = new Charger(1043, false).setHardness(3.8F).setCreativeTab(MachinesTab).setBlockName("Charger");
@@ -1009,9 +960,9 @@ public class LightningMaterials {
 		/** Achievement Registry*/
 		NickelAch = new Achievement("Nickel", "NickelAch", 0, 0, NickelOre, null).registerStat();
 		PlatinumAch = new Achievement("Platinum", "PlatinumAch", -1, -2, PlatinumOre, NickelAch).registerStat();
-		LightningAch = new Achievement("Lightning", "LightningAch", -3, -3, MyBlock_1, NickelAch).registerStat();
+		LightningAch = new Achievement("Lightning", "LightningAch", -3, -3, LightningOre, NickelAch).registerStat();
 		SolarAch = new Achievement("Solar", "SolarAch", -2, -1, SolarIdle, LightningAch).registerStat();
-		SwordAch = new Achievement("Sword", "SwordAch", -4, -0, MySword_1, LightningAch).registerStat();
+		SwordAch = new Achievement("Sword", "SwordAch", -4, -0, LightningSword, LightningAch).registerStat();
 		AllInOne = new Achievement("AllInOne", "AllInOne", -1, 1, MultiTool, SwordAch).registerStat();
 		AchievementPage.registerAchievementPage(new AchievementPage("Lightning Materials", new Achievement[] {NickelAch, PlatinumAch, LightningAch, AllInOne, SolarAch, SwordAch}));
 		/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */	
@@ -1052,7 +1003,7 @@ public class LightningMaterials {
 					" s ",
 					"sXs",
 					" s ",
-					'X', MyItem_2,
+					'X', LightningNugget,
 					's', Items.iron_ingot,
 						});
 				GameRegistry.addRecipe(new ItemStack(LightningRod, 1), new Object[]
@@ -1060,7 +1011,7 @@ public class LightningMaterials {
 					"X",
 					"s",
 					"s",
-					'X', MyItem_2,
+					'X', LightningNugget,
 					's', Items.iron_ingot,
 						});
 				GameRegistry.addRecipe(new ItemStack(blockMaceratorIdle, 1), new Object[]
@@ -1069,42 +1020,25 @@ public class LightningMaterials {
 					"XsX",
 					"XXX",
 					's', Blocks.furnace,
-					'X', MyItem_2,
-						});//GameRegistry.addRecipe(new ItemStack(ChargerIdle, 1), new Object[]
-				//								{
-				//							"svs",
-				//							"sXs",
-				//							"sss",
-				//							'X', Blocks.furnace,
-				//							's', Items.iron_ingot,
-				//							'v', new ItemStack(Battery, 1, Battery.getMaxDamage()),
-				//								});
-				//						GameRegistry.addRecipe(new ItemStack(Solar2Idle, 1), new Object[]
-				//								{
-				//							"X",
-				//
-				//							'X', SolarIdle,
-				//								});GameRegistry.addRecipe(new ItemStack(SolarIdle, 1), new Object[]
-				//										{
-				//									"sds",
-				//									"sXs",
-				//									"svs",
-				//									'X', Blocks.furnace,
-				//									's', Items.iron_ingot,
-				//									'v', new ItemStack(Battery, 1, Battery.getMaxDamage()),
-				//									'd', Blocks.daylight_detector,
-				//										});
-
-
-				//  SWORD RECIPE  
-
-				GameRegistry.addRecipe(new ItemStack(MySword_1, 1), new Object[]
+					'X', LightningNugget,
+						});
+				
+				GameRegistry.addRecipe(new ItemStack(BFurnace, 1), new Object[]
+						{
+					"XXX",
+					"XsX",
+					"XXX",
+					's', Blocks.furnace,
+					'X', NickelIngot,
+						});
+				
+				GameRegistry.addRecipe(new ItemStack(LightningSword, 1), new Object[]
 						{
 					" X ",
 					" X ",
 					" S ",
 					'S', Items.stick,
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});
 
 				GameRegistry.addRecipe(new ItemStack(NickelSword, 1), new Object[]
@@ -1171,13 +1105,13 @@ public class LightningMaterials {
 						});
 
 				//  PICKAXE RECIPE  
-				GameRegistry.addRecipe(new ItemStack(MyPickaxe_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningPickaxe, 1), new Object[]
 						{
 					"XXX",
 					" S ",
 					" S ",
 					'S', Items.stick,
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});
 				if (DisableZinc==false){
 					GameRegistry.addRecipe(new ItemStack(NickelPick, 1), new Object[]
@@ -1189,7 +1123,7 @@ public class LightningMaterials {
 						'X', NickelIngot,
 							});
 				}
-				GameRegistry.addRecipe(new ItemStack(PlatinumIngot, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(PlatinumPick, 1), new Object[]
 						{
 					"XXX",
 					" S ",
@@ -1244,13 +1178,13 @@ public class LightningMaterials {
 						});
 
 				//  AXE RECIPE  
-				GameRegistry.addRecipe(new ItemStack(MyAxe_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningAxe, 1), new Object[]
 						{
 					"XX ",
 					"XS ",
 					" S ",
 					'S', Items.stick,
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});
 				
 				GameRegistry.addRecipe(new ItemStack(NickelAxe, 1), new Object[]
@@ -1316,13 +1250,13 @@ public class LightningMaterials {
 					'X', Items.emerald,
 						});
 				
-				GameRegistry.addRecipe(new ItemStack(MyAxe_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningAxe, 1), new Object[]
 						{
 					" XX",
 					" SX",
 					" S ",
 					'S', Items.stick,
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});
 				
 				GameRegistry.addRecipe(new ItemStack(NickelAxe, 1), new Object[]
@@ -1389,13 +1323,13 @@ public class LightningMaterials {
 						});
 
 				//  SPADE RECIPE  
-				GameRegistry.addRecipe(new ItemStack(MySpade_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningSpade, 1), new Object[]
 						{
 					" X ",
 					" S ",
 					" S ",
 					'S', Items.stick,
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});
 				GameRegistry.addRecipe(new ItemStack(NickelSpade, 1), new Object[]
 						{
@@ -1446,14 +1380,7 @@ public class LightningMaterials {
 					'S', Items.stick,
 					'X', Amethyst,
 						});
-				GameRegistry.addRecipe(new ItemStack(MySpade_1, 1), new Object[]
-						{
-					" X ",
-					" S ",
-					" S ",
-					'S', Items.stick,
-					'X', MyItem_1,
-						});
+				
 
 				//  SPADE RECIPE  
 				GameRegistry.addRecipe(new ItemStack(MultiTool, 1), new Object[]
@@ -1462,35 +1389,35 @@ public class LightningMaterials {
 					" Z ",
 					" S ",
 					'S', Items.stick,
-					'X', new ItemStack(MyAxe_1, 1, OreDictionary.WILDCARD_VALUE),
-					'F', new ItemStack(MyPickaxe_1, 1, OreDictionary.WILDCARD_VALUE), 
-					'T', new ItemStack(MySpade_1, 1, OreDictionary.WILDCARD_VALUE),
-					'Z', new ItemStack(MySword_1, 1, OreDictionary.WILDCARD_VALUE),										});
+					'X', new ItemStack(LightningAxe, 1, OreDictionary.WILDCARD_VALUE),
+					'F', new ItemStack(LightningPickaxe, 1, OreDictionary.WILDCARD_VALUE), 
+					'T', new ItemStack(LightningSpade, 1, OreDictionary.WILDCARD_VALUE),
+					'Z', new ItemStack(LightningSword, 1, OreDictionary.WILDCARD_VALUE),										});
 
 				//  ITEM RECIPE         
-				GameRegistry.addRecipe(new ItemStack(MyItem_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningIngot, 1), new Object[]
 						{
 					"SSS",
 					"SSS",
 					"SSS",
-					'S', MyItem_2,
+					'S', LightningNugget,
 						});
 
-				GameRegistry.addRecipe(new ItemStack(MyItem_2, 9), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningNugget, 9), new Object[]
 						{
 
 					"S",
 
-					'S', MyItem_1,
+					'S', LightningIngot,
 						});
 
 				//  FOOD RECIPE         
-				GameRegistry.addRecipe(new ItemStack(MyFood_1, 1), new Object[]
+				GameRegistry.addRecipe(new ItemStack(LightningLoaf, 1), new Object[]
 						{
 					"SSS",
 					"SBS",
 					"SSS",
-					'S', MyItem_2,
+					'S', LightningNugget,
 					'B', Items.bread,
 						});
 
@@ -1518,7 +1445,7 @@ public class LightningMaterials {
 						{
 					"XXX",
 					"X X",
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});         
 
 				//  CHESTPLATE RECIPE   
@@ -1527,7 +1454,7 @@ public class LightningMaterials {
 					"X X",
 					"XXX",
 					"XXX",
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});         
 
 				//  LEGGINGS RECIPE 
@@ -1536,7 +1463,7 @@ public class LightningMaterials {
 					"XXX",
 					"X X",
 					"X X",
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});         
 
 				//  BOOTS RECIPE    
@@ -1544,7 +1471,7 @@ public class LightningMaterials {
 						{
 					"X X",
 					"X X",
-					'X', MyItem_1,
+					'X', LightningIngot,
 						});	
 				GameRegistry.addRecipe(new ItemStack(Gun_1, 1), new Object[]
 						{
@@ -1552,7 +1479,7 @@ public class LightningMaterials {
 					"XXS",
 					"  X",
 					'S', Items.redstone,
-					'X', MyItem_2,
+					'X', LightningNugget,
 						});
 				GameRegistry.addRecipe(new ItemStack(Grenade, 4), new Object[]
 						{
@@ -1570,7 +1497,7 @@ public class LightningMaterials {
 					"XSX",
 					"XXX",
 					'S', Blocks.chest,
-					'X', MyItem_2,
+					'X', LightningNugget,
 						});
 
 				GameRegistry.addRecipe(new ItemStack(FlintAndSteel, 1), new Object[]
@@ -1579,7 +1506,7 @@ public class LightningMaterials {
 					"S",
 
 					'S', Items.flint_and_steel,
-					'X', MyItem_2,
+					'X', LightningNugget,
 						});
 				if (NetherOres==true){
 					GameRegistry.addRecipe(new ItemStack(Blocks.emerald_ore, 2), new Object[]
@@ -1607,11 +1534,11 @@ public class LightningMaterials {
 						'X', NetherRedstone,
 							});}
 				if (NetherOres==true){
-					GameRegistry.addSmelting(NetherLightning, (new ItemStack(MyItem_1, 2)), 10);}
+					GameRegistry.addSmelting(NetherLightning, (new ItemStack(LightningIngot, 2)), 10);}
 				GameRegistry.addSmelting(Blocks.coal_ore, (new ItemStack(Items.coal, 1)), 10);
 				if (NetherOres==true){GameRegistry.addSmelting(NetherIron, (new ItemStack(Items.iron_ingot, 2)), 10);
 				GameRegistry.addSmelting(NetherGold, (new ItemStack(Items.gold_ingot, 2)), 10);}
-				GameRegistry.addSmelting(MyBlock_1, (new ItemStack(MyItem_1, 1)), 10);
+				GameRegistry.addSmelting(LightningOre, (new ItemStack(LightningIngot, 1)), 10);
 				GameRegistry.addSmelting(NickelOre, (new ItemStack(NickelIngot, 1)), 10);
 				GameRegistry.addSmelting(PlatinumOre, (new ItemStack(PlatinumIngot, 1)), 10);
 				GameRegistry.addSmelting(ZincOre, (new ItemStack(ZincIngot, 1)), 10);
@@ -1619,28 +1546,28 @@ public class LightningMaterials {
 				GameRegistry.addSmelting(AmethystOre, (new ItemStack(Amethyst, 1)), 10);
 				GameRegistry.addSmelting(SapphireOre, (new ItemStack(Sapphire, 1)), 10);
 				//Dust
-				GameRegistry.addSmelting(NickelDust, (new ItemStack(NickelIngot, 1)), 10);
-				GameRegistry.addSmelting(PlatinumDust, (new ItemStack(PlatinumIngot, 1)), 10);
-				GameRegistry.addSmelting(ZincDust, (new ItemStack(ZincIngot, 1)), 10);
-				GameRegistry.addSmelting(RubyDust, (new ItemStack(Ruby, 1)), 10);
-				GameRegistry.addSmelting(SapphireDust, (new ItemStack(Sapphire, 1)), 10);
-				GameRegistry.addSmelting(AmethystDust, (new ItemStack(Amethyst, 1)), 10);
-				GameRegistry.addSmelting(EmeraldDust, (new ItemStack(Items.emerald, 1)), 10);
-				GameRegistry.addSmelting(DiamondDust, (new ItemStack(Items.diamond, 1)), 10);
-				GameRegistry.addSmelting(GoldDust, (new ItemStack(Items.gold_ingot, 1)), 10);
-				GameRegistry.addSmelting(IronDust, (new ItemStack(Items.iron_ingot, 1)), 10);
-				GameRegistry.addSmelting(CoalDust, (new ItemStack(Items.coal, 1)), 10);
-				Recipes.addSmelting(NickelOre, (new ItemStack(NickelDust, 1)), 10);
-				Recipes.addSmelting(PlatinumOre, (new ItemStack(PlatinumDust, 1)), 10);
-				Recipes.addSmelting(ZincOre, (new ItemStack(ZincDust, 1)), 10);
-				Recipes.addSmelting(RubyOre, (new ItemStack(RubyDust, 1)), 10);
-				Recipes.addSmelting(AmethystOre, (new ItemStack(AmethystDust, 1)), 10);
-				Recipes.addSmelting(SapphireOre, (new ItemStack(SapphireDust, 1)), 10);
-				Recipes.addSmelting(Blocks.coal_ore, new ItemStack(CoalDust, 1),  10);
-				Recipes.addSmelting(Blocks.iron_ore, new ItemStack(IronDust, 1),  10);
-				Recipes.addSmelting(Blocks.gold_ore, new ItemStack(GoldDust, 1),  10);
-				Recipes.addSmelting(Blocks.diamond_ore, new ItemStack(DiamondDust, 1),  10);
-				Recipes.addSmelting(Blocks.emerald_ore, new ItemStack(EmeraldDust, 1),  10);
+				GameRegistry.addSmelting(dustNickel, (new ItemStack(NickelIngot, 1)), 10);
+				GameRegistry.addSmelting(dustPlatinum, (new ItemStack(PlatinumIngot, 1)), 10);
+				GameRegistry.addSmelting(dustZinc, (new ItemStack(ZincIngot, 1)), 10);
+				GameRegistry.addSmelting(dustRuby, (new ItemStack(Ruby, 1)), 10);
+				GameRegistry.addSmelting(dustSapphire, (new ItemStack(Sapphire, 1)), 10);
+				GameRegistry.addSmelting(dustAmethyst, (new ItemStack(Amethyst, 1)), 10);
+				GameRegistry.addSmelting(dustEmerald, (new ItemStack(Items.emerald, 1)), 10);
+				GameRegistry.addSmelting(dustDiamond, (new ItemStack(Items.diamond, 1)), 10);
+				GameRegistry.addSmelting(dustGold, (new ItemStack(Items.gold_ingot, 1)), 10);
+				GameRegistry.addSmelting(dustIron, (new ItemStack(Items.iron_ingot, 1)), 10);
+				GameRegistry.addSmelting(dustCoal, (new ItemStack(Items.coal, 1)), 10);
+				Recipes.addSmelting(NickelOre, (new ItemStack(dustNickel, 1)), 10);
+				Recipes.addSmelting(PlatinumOre, (new ItemStack(dustPlatinum, 1)), 10);
+				Recipes.addSmelting(ZincOre, (new ItemStack(dustZinc, 1)), 10);
+				Recipes.addSmelting(RubyOre, (new ItemStack(dustRuby, 1)), 10);
+				Recipes.addSmelting(AmethystOre, (new ItemStack(dustAmethyst, 1)), 10);
+				Recipes.addSmelting(SapphireOre, (new ItemStack(dustSapphire, 1)), 10);
+				Recipes.addSmelting(Blocks.coal_ore, new ItemStack(dustCoal, 1),  10);
+				Recipes.addSmelting(Blocks.iron_ore, new ItemStack(dustIron, 1),  10);
+				Recipes.addSmelting(Blocks.gold_ore, new ItemStack(dustGold, 1),  10);
+				Recipes.addSmelting(Blocks.diamond_ore, new ItemStack(dustDiamond, 1),  10);
+				Recipes.addSmelting(Blocks.emerald_ore, new ItemStack(dustEmerald, 1),  10);
 				if (isTFLoaded==true){
 					Recipes.addSmelting(Blocks.obsidian, new ItemStack(GameRegistry.findItem("ThermalFoundation", "material"), 1, 4), 10);
 				}

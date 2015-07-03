@@ -43,8 +43,8 @@ public class BFurnace extends BlockContainer{
 		
 		@SideOnly(Side.CLIENT)
 		public void registerBlockIcons(IIconRegister iconRegister){
-			this.blockIcon = iconRegister.registerIcon("mymod" + ":" + "furnace_side");
-			this.maceratorIconTop =  iconRegister.registerIcon("mymod" + ":" + (this.isActive ? "furnace_front_lit" : "furnace_front_idle"));
+			this.blockIcon = iconRegister.registerIcon("lightningmats" + ":" + "NickelBlock");
+			this.maceratorIconTop =  iconRegister.registerIcon("lightningmats" + ":" + (this.isActive ? "NickelFurnaceLit" : "NickelFurnaceIdle"));
 		}
 		
 		@SideOnly(Side.CLIENT)
