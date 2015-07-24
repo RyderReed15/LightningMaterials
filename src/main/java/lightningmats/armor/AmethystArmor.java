@@ -18,7 +18,6 @@ public class AmethystArmor extends ItemArmor {
 	private String texturePath = "lightningmats:textures/armor/";
 	private String iconPath = "lightningmats:";
 	private String name = "";
-	private String integer;
 
 	public AmethystArmor(int par1, ArmorMaterial par2EnumArmorMaterial, int par3,
 			int par4, String myArmorName) {
@@ -32,62 +31,49 @@ public class AmethystArmor extends ItemArmor {
 
 	private void SetArmorType(String myArmorName, int par4) {
 		switch (par4) {
-		case 0:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
-			
-			this.name = "AmethystHelm";
-			this.setUnlocalizedName("AmethystHelm");
+		case 0:		
+			this.name = "AmethystHelmet";
+			this.setUnlocalizedName("AmethystHelmet");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 1:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
 			this.name = "AmethystChestplate";
 			this.setUnlocalizedName("AmethystChestplate");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 2:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
 			this.name = "AmethystLeggings";
 			this.setUnlocalizedName("AmethystLeggings");
 			this.texturePath += myArmorName + "_2.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 3:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
 			this.name = "AmethystBoots";
 			this.setUnlocalizedName("AmethystBoots");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (name + integer);
+			this.iconPath += (name);
 			break;
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		this.itemIcon = reg.registerIcon(this.iconPath);
+		if (LightningMaterials.HDTextures==true){
+			this.itemIcon = reg.registerIcon(this.iconPath + "2");
+		}else{
+			this.itemIcon = reg.registerIcon(this.iconPath);
+		}
 	}
+		
 	
 	
 @SideOnly(Side.CLIENT)
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-	
-		return this.texturePath;
-	}}
+	if (LightningMaterials.HDTextures==true){
+			return this.texturePath + "2.png";
+		}
+	return this.texturePath + ".png";
+	}
+}

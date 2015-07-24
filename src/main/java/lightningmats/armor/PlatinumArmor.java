@@ -18,7 +18,6 @@ public class PlatinumArmor extends ItemArmor {
 	private String texturePath = "lightningmats:textures/armor/";
 	private String iconPath = "lightningmats:";
 	private String name = "";
-	private String integer;
 
 	public PlatinumArmor(int par1, ArmorMaterial par2EnumArmorMaterial, int par3,
 			int par4, String myArmorName) {
@@ -32,78 +31,49 @@ public class PlatinumArmor extends ItemArmor {
 
 	private void SetArmorType(String myArmorName, int par4) {
 		switch (par4) {
-		case 0:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
-			
-			this.name = "LightningHelm";
-			this.setUnlocalizedName("LightningHelm");
+		case 0:		
+			this.name = "PlatinumHelmet";
+			this.setUnlocalizedName("PlatinumHelmet");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 1:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
-			this.name = "LightningChestplate";
-			this.setUnlocalizedName("LightningChestplate");
+			this.name = "PlatinumChestplate";
+			this.setUnlocalizedName("PlatinumChestplate");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 2:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
-			this.name = "LightningLeggings";
-			this.setUnlocalizedName("LightningLeggings");
+			this.name = "PlatinumLeggings";
+			this.setUnlocalizedName("PlatinumLeggings");
 			this.texturePath += myArmorName + "_2.png";
-			this.iconPath += (this.name + this.integer);
+			this.iconPath += (this.name);
 			break;
 		case 3:
-			if (LightningMaterials.HDTextures == false){
-				this.integer = "2";
-			}else{
-				this.integer = "";
-			}
-			this.name = "LightningBoots";
-			this.setUnlocalizedName("LightningBoots");
+			this.name = "PlatinumBoots";
+			this.setUnlocalizedName("PlatinumBoots");
 			this.texturePath += myArmorName + "_1.png";
-			this.iconPath += (name + integer);
+			this.iconPath += (name);
 			break;
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister reg) {
-		this.itemIcon = reg.registerIcon(this.iconPath);
+		if (LightningMaterials.HDTextures==true){
+			this.itemIcon = reg.registerIcon(this.iconPath + "2");
+		}else{
+			this.itemIcon = reg.registerIcon(this.iconPath);
+		}
 	}
+		
 	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack itemstack)
-	{
-		if(player.getCurrentArmor(0) !=null && player.getCurrentArmor(0).getItem().equals(LightningMaterials.MyBoots_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.jump.id, 1, 1));
-		}
-
-		if(player.getCurrentArmor(1) !=null && player.getCurrentArmor(1).getItem().equals(LightningMaterials.MyLeggings_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 1, 2));
-		}
-		if(player.getCurrentArmor(3) !=null && player.getCurrentArmor(3).getItem().equals(LightningMaterials.MyHelmet_1))
-		{
-			player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 4500, 2));
-		}
-	}
+	
 @SideOnly(Side.CLIENT)
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-	
-		return this.texturePath;
-	}}
+	if (LightningMaterials.HDTextures==true){
+			return this.texturePath + "2.png";
+		}
+	return this.texturePath + ".png";
+	}
+}

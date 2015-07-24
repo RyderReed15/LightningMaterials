@@ -12,6 +12,7 @@ import cpw.mods.fml.client.config.DummyConfigElement;
 import cpw.mods.fml.client.config.DummyConfigElement.DummyListElement;
 import cpw.mods.fml.client.config.DummyConfigElement.DummyCategoryElement;
 import cpw.mods.fml.client.config.GuiConfig;
+import cpw.mods.fml.client.config.GuiConfigEntries.NumberSliderEntry;
 import cpw.mods.fml.client.config.IConfigElement;
 
 public class GuiConfigLM extends GuiConfig{
@@ -77,9 +78,21 @@ public class GuiConfigLM extends GuiConfig{
 		  		for (int i = 0; i < ServerConfig.length; i++) { 
 		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("server side")).getChildElements()); 
 		  			list.add(new DummyCategoryElement("Ore Generation", "oregenctg", getOreGenElements()));
+		  			list.add(new DummyCategoryElement("Machines", "machinesctg", getMachinesElements()));
 		  		} 
 		 		return list; 
 
+	 }
+	 
+	 private static List<IConfigElement> getMachinesElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		 
+		 for (int i = 0; i< ServerConfig.length; i++)
+		 {
+			 list.add(new DummyCategoryElement("Crusher", "crusherctg", getCrusherElements()));
+			 list.add(new DummyCategoryElement("Nickel Furnace", "furnacectg", getFurnaceElements()));
+		 }
+		 return list;
 	 }
 	 
 	 private static List<IConfigElement> getModCompElements(){
@@ -278,7 +291,29 @@ public class GuiConfigLM extends GuiConfig{
 		  
 		  
 		  		for (int i = 0; i < OreGenConfig.length; i++) { 
-		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("nethr emerald ore generation")).getChildElements()); 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("nether emerald ore generation")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 private static List<IConfigElement> getCrusherElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ServerConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("crusher")).getChildElements()); 
+		  		} 
+		 		return list; 
+
+	 }
+	 
+	 private static List<IConfigElement> getFurnaceElements(){
+		 List<IConfigElement> list = new ArrayList<IConfigElement>(); 
+		  
+		  
+		  		for (int i = 0; i < ServerConfig.length; i++) { 
+		  			list.addAll(new ConfigElement(LightningMaterials.config.getCategory("nickel furnace")).getChildElements()); 
 		  		} 
 		 		return list; 
 

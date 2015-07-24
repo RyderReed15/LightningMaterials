@@ -30,10 +30,7 @@ public class PickupHandler {
 	{
 	if (event.crafting.getItem() == LightningMaterials.LightningSword){
 		event.player.addStat(LightningMaterials.SwordAch, 1);
-	}
-	if (event.crafting.getItem() == Item.getItemFromBlock(LightningMaterials.SolarIdle)){
-		event.player.addStat(LightningMaterials.SolarAch, 1);
-	}
+		}
 	if (event.crafting.getItem() == LightningMaterials.MultiTool){
 		event.player.addStat(LightningMaterials.AllInOne, 1);
 	}

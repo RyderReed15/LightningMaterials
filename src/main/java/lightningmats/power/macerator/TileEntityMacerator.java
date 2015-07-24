@@ -37,7 +37,7 @@ public class TileEntityMacerator extends TileEnergyHandler implements ISidedInve
 		private ItemStack[] slots = new ItemStack[4];
 
 		/** the speed of this furnace, 200 is normal / how many ticks it takes : 30 ticks = 1 second */
-		public int maceratingSpeed = LightningMaterials.maceratorSpeed;
+		public int maceratingSpeed = LightningMaterials.maceratorSpeed+1;
 	
 		/** The number of ticks that the furnace will keep burning */
 		public int power;
@@ -134,7 +134,7 @@ public class TileEntityMacerator extends TileEnergyHandler implements ISidedInve
      	*/
     	public String getInvName()
     	{
-        	return this.isInvNameLocalized() ? this.field_94130_e : "container.macerator";
+        	return this.isInvNameLocalized() ? this.field_94130_e : "Crusher";
     	}
 
     	/**
@@ -504,7 +504,7 @@ public class TileEntityMacerator extends TileEnergyHandler implements ISidedInve
 		
 		}
 		public boolean canPower(){
-			if((this.CAPACITY) <= this.storage.energy){return false;}
+			if((this.CAPACITY-(getItemPower(this.slots[1])/2)) <= this.storage.energy){return false;}
 			return true;
 		}
 		@Override

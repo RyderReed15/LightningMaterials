@@ -29,15 +29,19 @@ public class TileEntityNickelFurnace extends TileEnergyHandler implements ISided
 		private ItemStack[] slots = new ItemStack[12];
 
 		/** the speed of this furnace, 200 is normal / how many ticks it takes : 30 ticks = 1 second */
-		public int maceratingSpeed = 151;
+		public int maceratingSpeed = LightningMaterials.furnaceSpeed+1;
 	
 		/** The number of ticks that the furnace will keep burning */
 		public static int power;
 		protected LMEnergyStorage storage;
-		public static int CAPACITY = 120000;
+		public static int CAPACITY = LightningMaterials.furnaceMaxPower;
 		public static int MAX_RECEIVE = 320;
 
 		/** The number of ticks that the current item has been cooking for */
+		public int cookingAmount;
+		public int isCooking1;
+		public int isCooking2;
+		public int isCooking3;
 		public int cookTime;
 		public int cookTime1;
 		public int cookTime2;
@@ -128,7 +132,7 @@ public class TileEntityNickelFurnace extends TileEnergyHandler implements ISided
      	*/
     	public String getInvName()
     	{
-        	return this.isInvNameLocalized() ? this.field_94130_e : "Bronze Furnace";
+        	return this.isInvNameLocalized() ? this.field_94130_e : "Nickel Furnace";
     	}
 
     	/**
@@ -247,22 +251,36 @@ public class TileEntityNickelFurnace extends TileEnergyHandler implements ISided
     	}
     
     	public boolean isMacerating(){
-    		return this.cookTime > 0;
+    		if (cookTime > 0){return true;}
+    		if (cookTime1 > 0){return true;}
+    		if (cookTime2 > 0){return true;}
+    		return false;
     	}
 
     	/**
      	* Allows the entity to update its state. Overridden in most subclasses, e.g. the mob spawner uses this to count
      	* ticks and creates a new spawn inside its implementation.
+     	* TODO
      	*/
     	public void updateEntity(){
     	
+    		
     		boolean flag = isMacerating();
         	boolean flag1 = false;
+        	if (cookTime > 0 && cookTime1 > 0 && cookTime2 > 0){
+        		this.cookingAmount = 3;
+        	}else if ((cookTime > 0 && cookTime1 > 0) || (cookTime1 > 0 && cookTime2 > 0) || (cookTime2 > 0 && cookTime > 0)){
+        		this.cookingAmount = 2;
+        	}else if (cookTime > 0 || cookTime1 > 0 || cookTime2 > 0){
+        		this.cookingAmount = 1;
+        	}else{
+        		this.cookingAmount = 0;
+        	}
         	if (this.storage.energy>this.CAPACITY){
         		this.storage.energy=this.CAPACITY;
         	}
         	if (hasPower() && isMacerating()){
-            		this.storage.energy--;this.storage.energy--;
+            		this.storage.energy = this.storage.energy-(LightningMaterials.furnacePowerUsage*this.cookingAmount);
         	}
 
         	if (!this.worldObj.isRemote){
@@ -578,7 +596,7 @@ public class TileEntityNickelFurnace extends TileEnergyHandler implements ISided
 		}
 		
 		public boolean canPower(){
-			if((this.CAPACITY) <= this.storage.energy){ this.storage.energy = this.CAPACITY; return false;}			
+			if((this.CAPACITY-(getItemPower(this.slots[1])/1.5)) <= this.storage.energy){ return false;}			
 			return true;
 		}
 		@Override

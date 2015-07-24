@@ -23,13 +23,15 @@ public class GunRenderer implements IItemRenderer {
 	}
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+		if (LightningMaterials.config.get("Client Side", "Render The Gun In 3D", true).getBoolean()==true){
 		switch(type)
 		{
 		
 		case EQUIPPED: return true;
 		case EQUIPPED_FIRST_PERSON: return true;
 		default: return false;
-		}
+		}}
+	return false;
 	}
 
 	@Override

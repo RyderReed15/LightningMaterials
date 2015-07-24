@@ -1,7 +1,13 @@
 package lightningmats;
 
 import lightningmats.armor.AmethystArmor;
+import lightningmats.armor.EmeraldArmor;
 import lightningmats.armor.LightningArmor;
+import lightningmats.armor.NickelArmor;
+import lightningmats.armor.PlatinumArmor;
+import lightningmats.armor.RubyArmor;
+import lightningmats.armor.SapphireArmor;
+import lightningmats.armor.ZincArmor;
 //import lightningmats.biome.MyBiome;
 import lightningmats.blocks.BasicBlock;
 import lightningmats.blocks.C4;
@@ -48,6 +54,7 @@ import lightningmats.projectile.RenderGrenade;
 import lightningmats.projectile.RenderLightning;
 import lightningmats.proxies.ClientProxy;
 import lightningmats.proxies.CommonProxy;
+import mcp.mobius.waila.api.impl.ModuleRegistrar;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -114,10 +121,13 @@ public class LightningMaterials {
 	public static boolean TFRecipes;
 	public static boolean isTFLoaded=false;
 	public static boolean IngameModOptions;
-	public static int maceratorSpeed = 101;
+	public static int maceratorSpeed = 100;
 	public static int maceratorOutput = 2;
 	public static int maceratorMaxPower = 40000;
 	public static int maceratorPowerUsage = 40;
+	public static int furnaceSpeed = 150;
+	public static int furnaceMaxPower = 120000;
+	public static int furnacePowerUsage = 40;
 	public static int lightningPerChunk = 1;
 	public static int lightningPerGroup = 3;
 	public static int lightningHeight = 23;
@@ -302,7 +312,6 @@ public class LightningMaterials {
 
 	public static Achievement NickelAch;
 	public static Achievement PlatinumAch;
-	public static Achievement SolarAch;
 	public static Achievement SwordAch;
 	public static Achievement AllInOne;
 	public static Achievement LightningAch;
@@ -420,6 +429,7 @@ public class LightningMaterials {
 	public  void preInit( FMLPreInitializationEvent event ) 
 	{
 		
+		
 		if (Loader.isModLoaded("ThermalFoundation"))
 		{
 			isTFLoaded=true;
@@ -483,6 +493,13 @@ public class LightningMaterials {
 		netherredstonePerChunk = config.get("Nether Redstone Ore Generation", "Veins Per Chunk", 4, null, 0, 16).getInt(4);
 		netherredstonePerGroup = config.get("Nether Redstone Ore Generation", "Average Ore Per Vein", 6, null, 0, 32).getInt(6);
 		netherredstoneHeight = config.get("Nether Redstone Ore Generation", "Maximum Generation Height", 46, null, 0, 255).getInt(46);
+		maceratorSpeed = config.get("Crusher", "Crusher Speed In Ticks (30 = second)", 100).getInt(100);
+		maceratorPowerUsage = config.get("Crusher", "Crusher's Power Usage Per Tick", 40).getInt(40);
+		maceratorMaxPower = config.get("Crusher", "Crusher's Max Power Storage", 40000).getInt(40000);
+		maceratorOutput = config.get("Crusher", "Crusher's Output Amount", 2).getInt(2);
+		furnaceSpeed = config.get("Nickel Furnace", "Nickel Furnace's Speed In Ticks", 150).getInt(150);
+		furnacePowerUsage = config.get("Nickel Furnace", "Nickel Furnace's Power Usage Per Tick", 40).getInt(40);
+		furnaceMaxPower = config.get("Nickel Furnace", "Nickel Furnace's Max Power Storage", 120000).getInt(120000);
 		config.setCategoryRequiresWorldRestart("Server Side", true);
 		config.setCategoryRequiresWorldRestart("server side", true);
 		config.addCustomCategoryComment("Machines", "These Effect The Machines From Lightning Materials");
@@ -490,7 +507,6 @@ public class LightningMaterials {
 		config.addCustomCategoryComment("Server Side", "These Require A World Restart");
 		config.addCustomCategoryComment("Client Side", "These Can Be Upadated Instantly");
 		config.save();
-
 
 		BlocksTab = new CreativeTabs("MyCreativeTab_1") {
 			public ItemStack getIconItemStack() {
@@ -806,7 +822,7 @@ public class LightningMaterials {
 		GameRegistry.registerItem(Detonater, "Detonater");
 
 	/**
-	 * Register Armor
+	 * Register Armor TODO
 	 */
 		MyHelmet_1 = new LightningArmor(2060, MyArmorMaterial_1, 0, 0, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyHelmet_1, "LightningHelm");
@@ -820,17 +836,89 @@ public class LightningMaterials {
 		MyBoots_1 = new LightningArmor(2063, MyArmorMaterial_1, 0, 3, "lightningarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(MyBoots_1, "LightningBoots");
 		
-		AmethystHelm = new AmethystArmor(2060, GemArmor, 0, 0, "lightningarmor").setCreativeTab(ArmorTab);
+		AmethystHelm = new AmethystArmor(2060, GemArmor, 0, 0, "amethystarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(AmethystHelm, "AmethystHelm");
 
-		AmethystChestplate = new AmethystArmor(2061, GemArmor, 0, 1, "lightningarmor").setCreativeTab(ArmorTab);
+		AmethystChestplate = new AmethystArmor(2061, GemArmor, 0, 1, "amethystarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(AmethystChestplate, "AmethystChestplate");
     
-		AmethystLeggings = new AmethystArmor(2062, GemArmor, 0, 2, "lightningarmor").setCreativeTab(ArmorTab);
+		AmethystLeggings = new AmethystArmor(2062, GemArmor, 0, 2, "amethystarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(AmethystLeggings, "AmethystLeggings");
   
-		AmethystBoots = new AmethystArmor(2063, GemArmor, 0, 3, "lightningarmor").setCreativeTab(ArmorTab);
+		AmethystBoots = new AmethystArmor(2063, GemArmor, 0, 3, "amethystarmor").setCreativeTab(ArmorTab);
 		GameRegistry.registerItem(AmethystBoots, "AmethystBoots");
+		
+		EmeraldHelm = new EmeraldArmor(2060, GemArmor, 0, 0, "emeraldarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(EmeraldHelm, "EmeraldHelm");
+
+		EmeraldChestplate = new EmeraldArmor(2061, GemArmor, 0, 1, "emeraldarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(EmeraldChestplate, "EmeraldChestplate");
+    
+		EmeraldLeggings = new EmeraldArmor(2062, GemArmor, 0, 2, "emeraldarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(EmeraldLeggings, "EmeraldLeggings");
+  
+		EmeraldBoots = new EmeraldArmor(2063, GemArmor, 0, 3, "emeraldarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(EmeraldBoots, "EmeraldBoots");
+		
+		RubyHelm = new RubyArmor(2060, GemArmor, 0, 0, "rubyarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(RubyHelm, "RubyHelm");
+
+		RubyChestplate = new RubyArmor(2061, GemArmor, 0, 1, "rubyarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(RubyChestplate, "RubyChestplate");
+    
+		RubyLeggings = new RubyArmor(2062, GemArmor, 0, 2, "rubyarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(RubyLeggings, "RubyLeggings");
+  
+		RubyBoots = new RubyArmor(2063, GemArmor, 0, 3, "rubyarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(RubyBoots, "RubyBoots");
+		
+		SapphireHelm = new SapphireArmor(2060, GemArmor, 0, 0, "sapphirearmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(SapphireHelm, "SapphireHelm");
+
+		SapphireChestplate = new SapphireArmor(2061, GemArmor, 0, 1, "sapphirearmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(SapphireChestplate, "SapphireChestplate");
+    
+		SapphireLeggings = new SapphireArmor(2062, GemArmor, 0, 2, "sapphirearmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(SapphireLeggings, "SapphireLeggings");
+  
+		SapphireBoots = new SapphireArmor(2063, GemArmor, 0, 3, "sapphirearmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(SapphireBoots, "SapphireBoots");
+		
+		NickelHelm = new NickelArmor(2060, GemArmor, 0, 0, "nickelarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(NickelHelm, "NickelHelm");
+
+		NickelChestplate = new NickelArmor(2061, GemArmor, 0, 1, "nickelarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(NickelChestplate, "NickelChestplate");
+    
+		NickelLeggings = new NickelArmor(2062, GemArmor, 0, 2, "nickelarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(NickelLeggings, "NickelLeggings");
+  
+		NickelBoots = new NickelArmor(2063, GemArmor, 0, 3, "nickelarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(NickelBoots, "NickelBoots");
+		
+		PlatinumHelm = new PlatinumArmor(2060, GemArmor, 0, 0, "platinumarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(PlatinumHelm, "PlatinumHelm");
+
+		PlatinumChestplate = new PlatinumArmor(2061, GemArmor, 0, 1, "platinumarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(PlatinumChestplate, "PlatinumChestplate");
+    
+		PlatinumLeggings = new PlatinumArmor(2062, GemArmor, 0, 2, "platinumarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(PlatinumLeggings, "PlatinumLeggings");
+  
+		PlatinumBoots = new PlatinumArmor(2063, GemArmor, 0, 3, "platinumarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(PlatinumBoots, "PlatinumBoots");
+		
+		ZincHelm = new ZincArmor(2060, GemArmor, 0, 0, "zincarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(ZincHelm, "ZincHelm");
+
+		ZincChestplate = new ZincArmor(2061, GemArmor, 0, 1, "zincarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(ZincChestplate, "ZincChestplate");
+    
+		ZincLeggings = new ZincArmor(2062, GemArmor, 0, 2, "zincarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(ZincLeggings, "ZincLeggings");
+  
+		ZincBoots = new ZincArmor(2063, GemArmor, 0, 3, "zincarmor").setCreativeTab(ArmorTab);
+		GameRegistry.registerItem(ZincBoots, "ZincBoots");
 
 
 		
@@ -954,10 +1042,9 @@ public class LightningMaterials {
 		NickelAch = new Achievement("Nickel", "NickelAch", 0, 0, NickelOre, null).registerStat();
 		PlatinumAch = new Achievement("Platinum", "PlatinumAch", -1, -2, PlatinumOre, NickelAch).registerStat();
 		LightningAch = new Achievement("Lightning", "LightningAch", -3, -3, LightningOre, NickelAch).registerStat();
-		SolarAch = new Achievement("Solar", "SolarAch", -2, -1, SolarIdle, LightningAch).registerStat();
 		SwordAch = new Achievement("Sword", "SwordAch", -4, -0, LightningSword, LightningAch).registerStat();
 		AllInOne = new Achievement("AllInOne", "AllInOne", -1, 1, MultiTool, SwordAch).registerStat();
-		AchievementPage.registerAchievementPage(new AchievementPage("Lightning Materials", new Achievement[] {NickelAch, PlatinumAch, LightningAch, AllInOne, SolarAch, SwordAch}));
+		AchievementPage.registerAchievementPage(new AchievementPage("Lightning Materials", new Achievement[] {NickelAch, PlatinumAch, LightningAch, AllInOne, SwordAch}));
 		/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */	
 
 	}
@@ -1595,7 +1682,9 @@ System.out.println("Thermal Foundation Loaded Status: " + isTFLoaded);
 				GameRegistry.registerWorldGenerator(new GemOreGen(), 3);
 				GameRegistry.registerWorldGenerator(new OreGen(), 2);
 				GameRegistry.registerWorldGenerator(new OreGen1(), 0);
-
+				if (Loader.isModLoaded("WAILA")){
+					ModuleRegistrar.instance().addConfig("LightningMaterials", "Display RF", "true");
+				}
 
 
 				/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */	
